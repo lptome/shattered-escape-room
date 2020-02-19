@@ -7,8 +7,10 @@ public class PlayerLook : MonoBehaviour
 
 
 	public float mouseSensitivity = 100f;
+	public float range = 4f;
 
 	public Transform playerBody;
+	public Camera playerCamera;
 
 	float xRotation = 0f;
 	// Use this for initialization
@@ -32,5 +34,19 @@ public class PlayerLook : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
 		playerBody.Rotate(Vector3.up * mouseX);
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			Click();
+		}
+	}
+
+	void Click()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+		{
+			hit.transform.gameObject.SendMessage("Click", SendMessageOptions.DontRequireReceiver);
+		}
 	}
 }

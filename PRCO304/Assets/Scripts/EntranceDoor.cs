@@ -6,7 +6,10 @@ public class EntranceDoor : MonoBehaviour
 {
 
     public Animator anim;
-    private bool locked = true;
+    private bool locked = false;
+    public GameObject lockedMessage;
+    private float showText;
+    private float textDuration = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,25 +20,31 @@ public class EntranceDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (lockedMessage.activeSelf == true && Time.time >= showText)
+        {
+            lockedMessage.SetActive(false);
+        }
     }
 
 
 
-    void OnMouseDown()
+   
+    void Click()
     {
-
-
-        if (anim.GetBool("open") == false)
+        if (locked == false)
         {
-            anim.SetTrigger("open");
+            if (anim.GetBool("open") == false)
+            {
+                anim.SetTrigger("open");
+            }
+            else
+                anim.ResetTrigger("open");
         }
         else
-            anim.ResetTrigger("open");
-
-
-
-
+        {
+            lockedMessage.SetActive(true);
+            showText = Time.time + textDuration;
+        }
     }
 
 }
