@@ -11,6 +11,7 @@ public class PlayerLook : MonoBehaviour
 
 	public Transform playerBody;
 	public Camera playerCamera;
+	public GameObject menu;
 
 	float xRotation = 0f;
 	// Use this for initialization
@@ -18,35 +19,48 @@ public class PlayerLook : MonoBehaviour
 	{
 
 		Cursor.lockState = CursorLockMode.Locked;
-
+		menu = GameObject.Find("Inventory");
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 
-		float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-		float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+		if (!IsPaused()) 
+		{ 
+			float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+			float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-		xRotation -= mouseY;
-		xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+			xRotation -= mouseY;
+			xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-		transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+			transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-		playerBody.Rotate(Vector3.up * mouseX);
+			playerBody.Rotate(Vector3.up * mouseX);
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			Click();
+			if (Input.GetMouseButtonDown(0))
+			{
+				Click();
+			}
 		}
 	}
 
 	void Click()
 	{
-		RaycastHit hit;
-		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+		if (!IsPaused())
 		{
-			hit.transform.gameObject.SendMessage("Click", SendMessageOptions.DontRequireReceiver);
+			RaycastHit hit;
+			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+			{
+				hit.transform.gameObject.SendMessage("Click", SendMessageOptions.DontRequireReceiver);
+			}
 		}
+	}
+
+	bool IsPaused()
+	{
+		if (menu.activeInHierarchy == true)
+			return true;
+		else return false;
 	}
 }

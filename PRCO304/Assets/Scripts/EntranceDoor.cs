@@ -6,10 +6,11 @@ public class EntranceDoor : MonoBehaviour
 {
 
     public Animator anim;
-    private bool locked = false;
+    private bool locked = true;
     public GameObject lockedMessage;
     private float showText;
     private float textDuration = 3f;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,9 @@ public class EntranceDoor : MonoBehaviour
    
     void Click()
     {
+
+        if (inventory.HasItem("Key")) locked = false;
+
         if (locked == false)
         {
             if (anim.GetBool("open") == false)
