@@ -66,10 +66,13 @@
     <Compile Include="Assets\Scripts\EntranceDoor.cs" />
     <Compile Include="Assets\Scripts\Hammer.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\SelectedPanel.cs" />
+    <Compile Include="Assets\Scripts\SelectedSlot.cs" />
     <Compile Include="Assets\Scripts\Vase.cs" />
     <None Include="Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">

@@ -1,23 +1,47 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
-    public GameObject inventory;
+
+
+    public GameObject inventoryPanel;
     private bool inventoryEnabled;
+    
 
-  
+    public event Action<Item> OnLeftClickEvent;
+    public event Action<ItemSlot> OnPointerEnterEvent;
+    public event Action<ItemSlot> OnPointerExitEvent;
+    public event Action<ItemSlot> OnBeginDragEvent;
+    public event Action<ItemSlot> OnEndDragEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
 
-
-    void Start()
+    private void Start()
     {
-        inventory.SetActive(false);
+        inventoryPanel.SetActive(false);
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].OnLeftClickEvent += OnLeftClickEvent;
+            itemSlots[i].OnPointerEnterEvent += OnPointerEnterEvent;
+            itemSlots[i].OnPointerExitEvent += OnPointerExitEvent;
+            itemSlots[i].OnBeginDragEvent += OnBeginDragEvent;
+            itemSlots[i].OnEndDragEvent += OnEndDragEvent;
+            itemSlots[i].OnDragEvent += OnDragEvent;
+            itemSlots[i].OnDropEvent += OnDropEvent;
+        }
+
+        RefreshUI();
     }
 
+
+   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -27,13 +51,13 @@ public class Inventory : MonoBehaviour
 
             if (inventoryEnabled == true)
             {   
-                inventory.SetActive(true);
+                inventoryPanel.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             } 
             else
             {
-                inventory.SetActive(false);
+                inventoryPanel.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
@@ -42,7 +66,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && inventoryEnabled == true)
         {
             inventoryEnabled = !inventoryEnabled;
-            inventory.SetActive(false);
+            inventoryPanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -67,8 +91,10 @@ public class Inventory : MonoBehaviour
         {
             itemSlots[i].Item = null;
         }
+        
     }
 
+    
     public bool AddItem(Item item)
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -107,4 +133,7 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
+
+    
+   
 }

@@ -10,7 +10,7 @@ public class EntranceDoor : MonoBehaviour
     public GameObject lockedMessage;
     private float showText;
     private float textDuration = 3f;
-    public Inventory inventory;
+    public SelectedPanel selectedPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class EntranceDoor : MonoBehaviour
     void Click()
     {
 
-        if (inventory.HasItem("Key")) locked = false;
+        if (selectedPanel.CheckItem("Key")) locked = false;
 
         if (locked == false)
         {
