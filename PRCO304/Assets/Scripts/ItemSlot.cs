@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IScrollHandler
 {
     [SerializeField] Image image;
    
@@ -17,6 +17,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public event Action<ItemSlot> OnEndDragEvent;
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
+    public event Action<ItemSlot> OnScrollEvent;
 
     private Color normalColor = Color.white;
     private Color disabledColor = new Color(1, 1, 1, 0);
@@ -96,5 +97,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             OnPointerExitEvent(this);
     }
 
-    
+    public void OnScroll(PointerEventData eventData)
+    {
+        if (OnScrollEvent != null)
+            OnScrollEvent(this);
+    }
 }

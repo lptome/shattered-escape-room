@@ -28,5 +28,8 @@ public class SelectedPanel : MonoBehaviour
         else return false;
     }
 
-    
+    public void HidePanel()
+    {
+        selectedPanel.SetActive(false);
+    }
 }

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Vase
   m_EditorClassIdentifier: 
   itemName: Vase
+  itemDescription: An inconspicuous vase.
   Icon: {fileID: 21300000, guid: 3cc187321e8e7184095e0dfb38863b2c, type: 3}
+  combineable: 1

@@ -63,17 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EntranceDoor.cs" />
-    <Compile Include="Assets\Scripts\Hammer.cs" />
+    <Compile Include="Assets\Scripts\DoorUnlock.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\ItemSlot.cs" />
+    <Compile Include="Assets\Scripts\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\SelectedSlot.cs" />
-    <Compile Include="Assets\Scripts\Vase.cs" />
     <None Include="Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Luis.Luis-PC/Desktop/PRCO304/PRCO304/PRCO304/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

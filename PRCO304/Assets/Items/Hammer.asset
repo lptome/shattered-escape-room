@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   itemName: Hammer
+  itemDescription: An old hammer. Maybe it could be used to break something?
   Icon: {fileID: 21300000, guid: 35c95a86e85d97446aedb7353a8e611a, type: 3}
+  combineable: 1

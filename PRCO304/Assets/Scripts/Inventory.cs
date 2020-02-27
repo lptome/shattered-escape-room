@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] List<Item> items;
+    
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
 
@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public event Action<ItemSlot> OnEndDragEvent;
     public event Action<ItemSlot> OnDragEvent;
     public event Action<ItemSlot> OnDropEvent;
+    public event Action<ItemSlot> OnScrollEvent;
 
     private void Start()
     {
@@ -82,15 +83,8 @@ public class Inventory : MonoBehaviour
 
     private void RefreshUI()
     {
-        int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = items[i];
-        }
-        for (; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = null;
-        }
+        
+
         
     }
 

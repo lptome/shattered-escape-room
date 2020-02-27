@@ -9,21 +9,29 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Inventory inventory;
     [SerializeField] SelectedPanel selectPanel;
     [SerializeField] Image draggableItem;
+    [SerializeField] ItemTooltip itemTooltip;
 
     private ItemSlot draggedSlot;
     private CanvasGroup canvasGroup;
+    
+
+    private void OnValidate()
+    {
+        if (itemTooltip == null)
+        {
+            itemTooltip = FindObjectOfType<ItemTooltip>();
+        }
+    }
 
     private void Awake()
     {
 
         canvasGroup = GetComponentInChildren<CanvasGroup>();
         //Setting up the events
-        //Left Click
-        //inventory.OnLeftClickEvent += SelectItem;
         //Pointer Enter
-        //inventory.OnPointerEnterEvent += ShowTooltip;
+        inventory.OnPointerEnterEvent += ShowTooltip;
         //Pointer Exit
-        //inventory.OnPointerExitEvent += HideToolTip;
+        inventory.OnPointerExitEvent += HideTooltip;
         //Begin Drag
         inventory.OnBeginDragEvent += BeginDrag;
         //End Drag
@@ -33,6 +41,11 @@ public class InventoryManager : MonoBehaviour
         //Drop
         inventory.OnDropEvent += Drop;
         inventory.OnLeftClickEvent += Select;
+        //Scroll
+        inventory.OnScrollEvent += Scroll;
+
+        //Disables Tooltip 
+        itemTooltip.HideTooltip();
     }
 
 
@@ -42,9 +55,22 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    private void BeginDrag(ItemSlot itemSlot)
+    private void ShowTooltip(ItemSlot itemSlot)
     {
-        Debug.Log("BeginDrag");
+        if(itemSlot.Item != null)
+        {
+            Item item = itemSlot.Item;
+            itemTooltip.ShowTooltip(item);
+        }
+            
+    }
+
+    private void HideTooltip(ItemSlot itemSlot)
+    {
+        itemTooltip.HideTooltip();
+    }
+    private void BeginDrag(ItemSlot itemSlot)
+    { 
         canvasGroup.blocksRaycasts = false;
 
         if (itemSlot.Item != null)
@@ -54,28 +80,36 @@ public class InventoryManager : MonoBehaviour
             draggableItem.transform.position = Input.mousePosition;
             draggableItem.enabled = true;
         }
+
+        Select(itemSlot.Item);
+        itemTooltip.HideTooltip();
     }
     private void EndDrag(ItemSlot itemSlot)
     {
-        Debug.Log("EndDrag");
         canvasGroup.blocksRaycasts = true;
         draggedSlot = null;
         draggableItem.enabled = false;
     }
     private void Drag(ItemSlot itemSlot)
     {
-        Debug.Log("Drag");
         if (draggableItem.enabled)
-            draggableItem.transform.position = Input.mousePosition;
-        
+            draggableItem.transform.position = Input.mousePosition;       
     }
     private void Drop(ItemSlot dropItemSlot)
     {
-        Debug.Log("Drop");
-        Item draggedItem = draggedSlot.Item;
-        draggedSlot.Item = dropItemSlot.Item;
-        dropItemSlot.Item = draggedItem;
+        if (dropItemSlot.Item != null)
+        {
+            Item draggedItem = draggedSlot.Item;
+            draggedSlot.Item = dropItemSlot.Item;
+            dropItemSlot.Item = draggedItem;
+        }
         
+        
+    }
+
+    private void Scroll(ItemSlot itemSlot)
+    {
+
     }
 
 }

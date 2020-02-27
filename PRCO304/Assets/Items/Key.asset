@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: Key
+  itemDescription: A key, but what does it open?
   Icon: {fileID: 21300000, guid: 69fe3b3f99b5c274c964c03aac6fc9f0, type: 3}
+  singleUse: 1
