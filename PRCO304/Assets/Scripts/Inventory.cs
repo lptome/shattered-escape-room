@@ -9,11 +9,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
 
-
     public GameObject inventoryPanel;
     private bool inventoryEnabled;
     
-
     public event Action<Item> OnLeftClickEvent;
     public event Action<ItemSlot> OnPointerEnterEvent;
     public event Action<ItemSlot> OnPointerExitEvent;
@@ -47,7 +45,7 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            
+                        
             inventoryEnabled = !inventoryEnabled;
 
             if (inventoryEnabled == true)
@@ -61,6 +59,7 @@ public class Inventory : MonoBehaviour
                 inventoryPanel.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                
             }
         }
 

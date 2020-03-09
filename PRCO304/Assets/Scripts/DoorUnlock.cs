@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorUnlock : MonoBehaviour
 {
@@ -15,19 +16,19 @@ public class DoorUnlock : MonoBehaviour
     public SelectedPanel selectedPanel;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (lockedMessage.activeSelf == true && Time.time >= showText)
+        if (showText > 0.0f)
         {
-            lockedMessage.SetActive(false);
+            if (lockedMessage.activeSelf == true && Time.time >= showText)
+            {
+
+                lockedMessage.SetActive(false);
+                showText = 0.0f;
+            }
         }
+        
     }
 
 
@@ -36,7 +37,7 @@ public class DoorUnlock : MonoBehaviour
     void Click()
     {
 
-        if (selectedPanel.CheckItem(item.itemName))
+        if (selectedPanel.isActiveAndEnabled && selectedPanel.CheckItem(item.itemName))
         {
             locked = false;
             if (item.singleUse == true)
@@ -44,8 +45,11 @@ public class DoorUnlock : MonoBehaviour
                 inventory.RemoveItem(item);
                 selectedPanel.HidePanel();
             }
-                
-                
+            lockedMessage.GetComponent<Text>().text = "Unlocked!";
+            lockedMessage.SetActive(true);
+            showText = Time.time + textDuration;
+
+
         }
             
 
@@ -54,12 +58,14 @@ public class DoorUnlock : MonoBehaviour
             if (anim.GetBool("open") == false)
             {
                 anim.SetTrigger("open");
+                
             }
             else
                 anim.ResetTrigger("open");
         }
         else
         {
+            lockedMessage.GetComponent<Text>().text = "It's locked.";
             lockedMessage.SetActive(true);
             showText = Time.time + textDuration;
         }

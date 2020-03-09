@@ -19,7 +19,7 @@ public class PlayerLook : MonoBehaviour
 	{
 
 		Cursor.lockState = CursorLockMode.Locked;
-		menu = GameObject.Find("Inventory");
+		
 	}
 
 	// Update is called once per frame

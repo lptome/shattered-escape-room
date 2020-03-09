@@ -103,8 +103,8 @@ public class InventoryManager : MonoBehaviour
             draggedSlot.Item = dropItemSlot.Item;
             dropItemSlot.Item = draggedItem;
         }
-        
-        
+
+        Debug.Log("Dropped.");
     }
 
     private void Scroll(ItemSlot itemSlot)
