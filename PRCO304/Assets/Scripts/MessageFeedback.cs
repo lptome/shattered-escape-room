@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MessageFeedback : MonoBehaviour
 {
 
-    public GameObject feedbackMessage;
+    public GameObject feedbackPanel;
     private float showText;
     private float textDuration = 3f;
 
@@ -15,9 +15,9 @@ public class MessageFeedback : MonoBehaviour
     {
         if (showText > 0.0f)
         {
-            if (feedbackMessage.activeSelf == true && Time.time >= showText)
+            if (feedbackPanel.activeSelf == true && Time.time >= showText)
             {
-                feedbackMessage.SetActive(false);
+                feedbackPanel.SetActive(false);
                 showText = 0.0f;
             }
         }
@@ -26,8 +26,8 @@ public class MessageFeedback : MonoBehaviour
 
     public void ShowMessage(string message, float currentTime)
     {
-        feedbackMessage.GetComponent<Text>().text = message;
+        feedbackPanel.GetComponentInChildren<Text>().text = message;
         showText = textDuration + currentTime;
-        feedbackMessage.SetActive(true);
+        feedbackPanel.SetActive(true);
     }
 }

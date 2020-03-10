@@ -188,7 +188,7 @@ Material:
     - _node_879: 0
     - _norminten: 0
     m_Colors:
-    - _Color: {r: 0.3962264, g: 0.19911088, b: 0.09158064, a: 1}
+    - _Color: {r: 0.23584908, g: 0.2232408, b: 0.21693666, a: 1}
     - _Color_Bloof: {r: 0.309, g: 0, b: 0, a: 1}
     - _Color_Multi: {r: 1, g: 1, b: 1, a: 1}
     - _Color_copy: {r: 1, g: 1, b: 1, a: 1}
