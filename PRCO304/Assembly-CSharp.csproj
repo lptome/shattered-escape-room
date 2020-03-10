@@ -71,11 +71,12 @@
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\ItemTooltip.cs" />
+    <Compile Include="Assets\Scripts\MessageFeedback.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\SelectedSlot.cs" />
-    <None Include="Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
+    <None Include="Assets\Imported Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Luis.Luis-PC/Desktop/PRCO304/PRCO304/PRCO304/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

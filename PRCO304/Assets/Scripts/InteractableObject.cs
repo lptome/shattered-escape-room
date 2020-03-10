@@ -9,6 +9,7 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] Item itemGiven;
     [SerializeField] Inventory inventory;
     [SerializeField] SelectedPanel selectedPanel;
+    [SerializeField] MessageFeedback feedback;
 
     public GameObject popupMessage;
     
@@ -26,25 +27,12 @@ public class InteractableObject : MonoBehaviour
     //Determines whether object is destroyed once the correct item is used on it.
     public bool destructable;
 
-    //Setting up GUI text.
-    private float showText;
-    private float textDuration = 3f;
+    //Stores current time
+    private float currentTime;
+    
 
 
-    void Update()
-    {
-        if (showText > 0.0f)
-        {
-            if (popupMessage.activeSelf == true && Time.time >= showText)
-            {
-
-                popupMessage.SetActive(false);
-                showText = 0.0f;
-
-            }
-        }
-        
-    }
+ 
 
     void Click()
     {
@@ -58,11 +46,11 @@ public class InteractableObject : MonoBehaviour
 
             if (destructable == true)
             {
-                Destroy(gameObject);
+                initialObject.SetActive(false);
             }
-            popupMessage.GetComponent<Text>().text = interactText;
-            popupMessage.SetActive(true);
-            showText = Time.time + textDuration;
+
+            currentTime = Time.time;
+            feedback.ShowMessage(interactText, currentTime);
 
             if (itemGiven != null)
             {
@@ -75,9 +63,8 @@ public class InteractableObject : MonoBehaviour
 
         else
         {
-            popupMessage.GetComponent<Text>().text = defaultText;
-            popupMessage.SetActive(true);
-            showText = Time.time + textDuration;
+            currentTime = Time.time;
+            feedback.ShowMessage(defaultText, currentTime);
         }
     }
 }
