@@ -8,9 +8,11 @@ public class Inventory : MonoBehaviour
     
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
+    [SerializeField] SelectedPanel selectedPanel;
 
     public GameObject inventoryPanel;
     private bool inventoryEnabled;
+    private int currentItem = 0; //Index for the currently selected item.
     
     public event Action<Item> OnLeftClickEvent;
     public event Action<ItemSlot> OnPointerEnterEvent;
@@ -70,6 +72,37 @@ public class Inventory : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            int slotsFilled = CheckSlots();
+            if (currentItem > slotsFilled)
+            {
+                currentItem = 0;
+            }
+            else
+            {
+                currentItem += 1;
+            }
+            
+            if (itemSlots[currentItem].Item != null)
+                selectedPanel.SelectItem(itemSlots[currentItem].Item);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            int slotsFilled = CheckSlots();
+            if (currentItem < 1)
+            {
+                currentItem = slotsFilled;
+            }
+            else
+            {
+                currentItem -= 1;
+            }
+            
+            if (itemSlots[currentItem].Item != null)
+                selectedPanel.SelectItem(itemSlots[currentItem].Item);
+        }
     }
 
     private void OnValidate()
@@ -87,6 +120,16 @@ public class Inventory : MonoBehaviour
         
     }
 
+    private int CheckSlots()
+    {
+        int slotsFilled = 0;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].Item != null)
+                slotsFilled += 1;
+        }
+        return slotsFilled;
+    }
     
     public bool AddItem(Item item)
     {

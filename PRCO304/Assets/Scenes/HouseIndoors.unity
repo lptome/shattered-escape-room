@@ -5203,7 +5203,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &693123587
 CanvasRenderer:
@@ -5679,6 +5679,7 @@ MonoBehaviour:
   - {fileID: 1929369627}
   - {fileID: 275087489}
   - {fileID: 1214632488}
+  selectedPanel: {fileID: 168760501}
   inventoryPanel: {fileID: 763169310}
 --- !u!114 &763169315
 MonoBehaviour:
@@ -8891,6 +8892,7 @@ MonoBehaviour:
   - {fileID: 1929369627}
   - {fileID: 275087489}
   - {fileID: 1214632488}
+  selectedPanel: {fileID: 168760501}
   inventoryPanel: {fileID: 763169310}
 --- !u!4 &1694986573 stripped
 Transform:
@@ -9609,7 +9611,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1917006220
 CanvasRenderer:
