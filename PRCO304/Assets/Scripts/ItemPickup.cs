@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    [SerializeField] GameObject itemObject;
+    [SerializeField] GameObject itemModel;
     [SerializeField] Inventory inventory;
     [SerializeField] Item item;
+    [SerializeField] MessageFeedback messageFeedback;
 
+    
     void Click()
     {
-        Destroy(itemObject);
+        
         inventory.AddItem(item);
+        float currentTime = Time.time;
+        string message = item.itemName + " added to inventory.";
+        messageFeedback.ShowMessage(message, currentTime);
+        Destroy(itemModel);
+
     }
 }
