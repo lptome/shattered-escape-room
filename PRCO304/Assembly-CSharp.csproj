@@ -71,6 +71,9 @@
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\ItemTooltip.cs" />
+    <Compile Include="Assets\Scripts\Journal.cs" />
+    <Compile Include="Assets\Scripts\JournalEntry.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MessageFeedback.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />

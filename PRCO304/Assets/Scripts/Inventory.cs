@@ -10,8 +10,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] ItemSlot[] itemSlots;
     [SerializeField] SelectedPanel selectedPanel;
 
-    public GameObject inventoryPanel;
-    private bool inventoryEnabled;
+    
+    
     private int currentItem = 0; //Index for the currently selected item.
     
     public event Action<Item> OnLeftClickEvent;
@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        inventoryPanel.SetActive(false);
+
 
         for (int i = 0; i < itemSlots.Length; i++)
         {
@@ -38,40 +38,12 @@ public class Inventory : MonoBehaviour
             itemSlots[i].OnDropEvent += OnDropEvent;
         }
 
-        RefreshUI();
     }
 
 
    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-                        
-            inventoryEnabled = !inventoryEnabled;
-
-            if (inventoryEnabled == true)
-            {   
-                inventoryPanel.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            } 
-            else
-            {
-                inventoryPanel.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && inventoryEnabled == true)
-        {
-            inventoryEnabled = !inventoryEnabled;
-            inventoryPanel.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
@@ -110,15 +82,10 @@ public class Inventory : MonoBehaviour
         if (itemsParent != null)
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
 
-        RefreshUI();
-    }
-
-    private void RefreshUI()
-    {
-        
-
         
     }
+
+  
 
     private int CheckSlots()
     {

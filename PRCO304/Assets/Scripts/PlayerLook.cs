@@ -11,7 +11,8 @@ public class PlayerLook : MonoBehaviour
 
 	public Transform playerBody;
 	public Camera playerCamera;
-	public GameObject menu;
+	public GameObject inventory;
+	public GameObject journal;
 
 
 	float xRotation = 0f;
@@ -60,7 +61,7 @@ public class PlayerLook : MonoBehaviour
 
 	bool IsPaused()
 	{
-		if (menu.activeInHierarchy == true)
+		if (inventory.activeInHierarchy == true || journal.activeInHierarchy == true)
 			return true;
 		else return false;
 	}

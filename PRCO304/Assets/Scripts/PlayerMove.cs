@@ -10,7 +10,10 @@ public class PlayerMove : MonoBehaviour
 	public Transform groundCheck;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
-	public GameObject menu;
+	public GameObject inventory;
+	public GameObject journal;
+	
+	
 
 	public float speed;
 	public float walkSpeed = 12f;
@@ -22,7 +25,7 @@ public class PlayerMove : MonoBehaviour
 
 	void Start()
 	{
-		menu = GameObject.Find("Inventory");
+
 	}
 	// Update is called once per frame
 	void Update()
@@ -46,6 +49,8 @@ public class PlayerMove : MonoBehaviour
 				speed = walkSpeed;
 			}
 
+			if (!IsPaused())
+		{
 			float x = Input.GetAxis("Horizontal");
 			float z = Input.GetAxis("Vertical");
 
@@ -60,12 +65,14 @@ public class PlayerMove : MonoBehaviour
 
 			controller.Move(velocity * Time.deltaTime);
 
+		}
 	}
 
 	bool IsPaused()
 	{
-		if (menu.activeInHierarchy == true)
+		if (inventory.activeInHierarchy == true || journal.activeInHierarchy == true)
 			return true;
 		else return false;
 	}
+
 }

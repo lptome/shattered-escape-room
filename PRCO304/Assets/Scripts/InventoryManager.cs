@@ -41,8 +41,6 @@ public class InventoryManager : MonoBehaviour
         //Drop
         inventory.OnDropEvent += Drop;
         inventory.OnLeftClickEvent += Select;
-        //Scroll
-        inventory.OnScrollEvent += Scroll;
 
         //Disables Tooltip 
         itemTooltip.HideTooltip();
@@ -104,12 +102,9 @@ public class InventoryManager : MonoBehaviour
             dropItemSlot.Item = draggedItem;
         }
 
-        Debug.Log("Dropped.");
+        
     }
 
-    private void Scroll(ItemSlot itemSlot)
-    {
-
-    }
+   
 
 }
