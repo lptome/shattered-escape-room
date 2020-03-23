@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DoorUnlock.cs" />
+    <Compile Include="Assets\Scripts\EntryPickup.cs" />
+    <Compile Include="Assets\Scripts\EntryView.cs" />
     <Compile Include="Assets\Scripts\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\InventoryManager.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="Assets\Scripts\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\Journal.cs" />
     <Compile Include="Assets\Scripts\JournalEntry.cs" />
+    <Compile Include="Assets\Scripts\JournalManager.cs" />
+    <Compile Include="Assets\Scripts\JournalSlot.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MessageFeedback.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />

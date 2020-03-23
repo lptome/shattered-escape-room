@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
     public GameObject journalPanel;
     public GameObject inventoryPanel;
     public GameObject tooltipPanel;
+    public GameObject entryPanel;
     private bool journalEnabled;
     private bool inventoryEnabled;
     void Start()
@@ -21,6 +22,10 @@ public class Menu : MonoBehaviour
         if (inventoryEnabled == false)
         {
             tooltipPanel.SetActive(false);
+        }
+        if (journalEnabled == false)
+        {
+            entryPanel.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
