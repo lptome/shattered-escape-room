@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\SelectedSlot.cs" />
+    <Compile Include="Assets\Scripts\Walking.cs" />
     <None Include="Assets\Imported Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Luis.Luis-PC/Desktop/PRCO304/PRCO304/PRCO304/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
