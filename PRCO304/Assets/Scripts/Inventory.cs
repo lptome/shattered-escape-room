@@ -135,6 +135,12 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public bool CanCombine(Item item1, Item item2)
+    {
+        if (item1.finalItem == item2.finalItem)
+            return true;
+        return false;
+    }
     
    
 }

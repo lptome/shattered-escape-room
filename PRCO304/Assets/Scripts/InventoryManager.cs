@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] SelectedPanel selectPanel;
     [SerializeField] Image draggableItem;
     [SerializeField] ItemTooltip itemTooltip;
+    [SerializeField] Item[] items;
 
     private ItemSlot draggedSlot;
     private CanvasGroup canvasGroup;
@@ -97,9 +98,38 @@ public class InventoryManager : MonoBehaviour
     {
         if (dropItemSlot.Item != null)
         {
-            Item draggedItem = draggedSlot.Item;
-            draggedSlot.Item = dropItemSlot.Item;
-            dropItemSlot.Item = draggedItem;
+            if (inventory.CanCombine(dropItemSlot.Item, draggedSlot.Item))
+            {
+                for (int i = 0; i < items.Length; i++)
+                {
+                    if (items[i].itemName == dropItemSlot.Item.finalItem)
+                    {
+                        if (draggedSlot.Item.singleUse && dropItemSlot.Item.singleUse == false)
+                        {
+                            draggedSlot.Item = dropItemSlot.Item;
+                            dropItemSlot.Item = items[i];
+                        }
+                        else if (dropItemSlot.Item.singleUse && draggedSlot.Item.singleUse == false)
+                        {
+                            
+                            dropItemSlot.Item = items[i];
+                            
+                        }
+                        else
+                        {
+                            dropItemSlot.Item = items[i];
+                        }
+                        
+                    }
+                }
+            }
+            else
+            {
+                Item draggedItem = draggedSlot.Item;
+                draggedSlot.Item = dropItemSlot.Item;
+                dropItemSlot.Item = draggedItem;
+            }
+            
         }
 
         

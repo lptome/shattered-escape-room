@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public string itemDescription;
     public Sprite Icon;
     public bool singleUse;          //Whether the item is destroyed/consumed upon usage
+    public string finalItem;        //Name of the item that can be formed by combining it with another item, can be null.
     
 
 }
