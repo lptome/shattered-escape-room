@@ -10,7 +10,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] MessageFeedback messageFeedback;
 
     
-    void Click()
+    void PickUp()
     {
         
         inventory.AddItem(item);

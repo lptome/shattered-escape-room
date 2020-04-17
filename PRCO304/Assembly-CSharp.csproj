@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\JournalSlot.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MessageFeedback.cs" />
+    <Compile Include="Assets\Scripts\Open.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SelectedPanel.cs" />

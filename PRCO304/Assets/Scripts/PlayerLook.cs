@@ -8,6 +8,7 @@ public class PlayerLook : MonoBehaviour
 
 	public float mouseSensitivity = 100f;
 	public float range = 4f;
+	public LayerMask itemLayer;
 
 	public Transform playerBody;
 	public Camera playerCamera;
@@ -44,6 +45,11 @@ public class PlayerLook : MonoBehaviour
 			{
 				Click();
 			}
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				PickUp();
+			}
+
 		}
 	}
 
@@ -57,6 +63,20 @@ public class PlayerLook : MonoBehaviour
 				hit.transform.gameObject.SendMessage("Click", SendMessageOptions.DontRequireReceiver);
 			}
 		}
+	}
+
+	void PickUp()
+	{
+		if (!IsPaused())
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
+			{
+				hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);
+			}
+		}
+
+		
 	}
 
 	bool IsPaused()
