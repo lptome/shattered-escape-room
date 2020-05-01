@@ -50,6 +50,7 @@ public class PlayerLook : MonoBehaviour
 				PickUp();
 			}
 
+			Hover();
 		}
 	}
 
@@ -79,6 +80,17 @@ public class PlayerLook : MonoBehaviour
 		
 	}
 
+	void Hover()
+	{
+		if (!IsPaused())
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+			{
+				hit.transform.gameObject.SendMessage("Hover", SendMessageOptions.DontRequireReceiver);
+			}
+		}
+	}
 	bool IsPaused()
 	{
 		if (inventory.activeInHierarchy == true || journal.activeInHierarchy == true)

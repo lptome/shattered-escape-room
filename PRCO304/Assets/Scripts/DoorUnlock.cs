@@ -11,9 +11,7 @@ public class DoorUnlock : MonoBehaviour
     [SerializeField] MessageFeedback feedback;
     public Animator anim;
     private bool locked = true;
-    public GameObject lockedMessage;
     private float currentTime;
-    private float textDuration = 3f;
     public SelectedPanel selectedPanel;
 
 

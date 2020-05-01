@@ -8,10 +8,12 @@ public class PlayerMove : MonoBehaviour
 
 	public CharacterController controller;
 	public Transform groundCheck;
+	public Transform tr;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
 	public GameObject inventory;
 	public GameObject journal;
+	
 	
 	
 
@@ -25,12 +27,12 @@ public class PlayerMove : MonoBehaviour
 
 	void Start()
 	{
-
+		tr = controller.transform;
 	}
 	// Update is called once per frame
 	void Update()
 	{
-
+		float vScale = 1.3f;
 
 			isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -40,17 +42,31 @@ public class PlayerMove : MonoBehaviour
 
 			}
 
-			if (Input.GetKey(KeyCode.LeftShift))
+			if (isGrounded && Input.GetKey(KeyCode.LeftShift))
 			{
 				speed = sprintSpeed;
 			}
-			else
+			else if (isGrounded)
 			{
 				speed = walkSpeed;
 			}
 
+			if  (Input.GetKey(KeyCode.LeftControl))
+			{
+			vScale = 0.5f;
+			Vector3 tempScale = tr.localScale;
+			Vector3 tempPosition = tr.position;
+
+			tempScale.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
+			tr.localScale = tempScale;
+			tr.position = tempPosition;
+			}
+			else
+			{
+			
+			}
 			if (!IsPaused())
-		{
+			{
 			float x = Input.GetAxis("Horizontal");
 			float z = Input.GetAxis("Vertical");
 
@@ -61,11 +77,16 @@ public class PlayerMove : MonoBehaviour
 
 			velocity.y += gravity * Time.deltaTime;
 
+			Vector3 tempScale = tr.localScale;
+			Vector3 tempPosition = tr.position;
 
+			tempScale.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
+			tr.localScale = tempScale;
+			tr.position = tempPosition;
 
 			controller.Move(velocity * Time.deltaTime);
 
-		}
+			}
 	}
 
 	bool IsPaused()

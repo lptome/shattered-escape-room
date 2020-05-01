@@ -7,6 +7,7 @@ public class Open : MonoBehaviour
     public Animator anim;
     void Click()
     {
+        
         if (anim.GetBool("open") == false)
         {
             anim.SetTrigger("open");
