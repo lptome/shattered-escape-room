@@ -7,6 +7,7 @@ public class Journal : MonoBehaviour
     public GameObject journalPanel;
     [SerializeField] Transform entriesParent;
     [SerializeField] JournalSlot[] journalSlots;
+    public Menu menu;
 
     public event Action<JournalEntry> OnLeftClickEvent;
     public event Action<JournalSlot> OnPointerEnterEvent;
@@ -38,9 +39,12 @@ public class Journal : MonoBehaviour
             if (journalSlots[i].JournalEntry == null)
             {
                 journalSlots[i].JournalEntry = journalEntry;
+                menu.CheckEntryAdded(true);
                 return true;
             }
         }
         return false;
+
+        
     }
 }

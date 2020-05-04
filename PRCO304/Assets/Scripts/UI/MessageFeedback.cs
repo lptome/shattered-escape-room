@@ -6,21 +6,27 @@ using UnityEngine.UI;
 public class MessageFeedback : MonoBehaviour
 {
     [SerializeField] private TextWriter textWriter;
+    public Menu menu;
     public GameObject feedbackPanel;
-    private float showText;
-    private float textDuration = 6f;
+    private float textDuration;
 
 
     void Update()
     {
-        if (showText > 0.0f)
+        if (textDuration != 0f)
         {
-            if (feedbackPanel.activeSelf == true && Time.time >= showText)
+
+            textDuration -= Time.deltaTime;
+
+            if (textDuration <= 0f)
             {
+
+                menu.CheckCompleted(true);
                 feedbackPanel.SetActive(false);
                 feedbackPanel.GetComponentInChildren<Text>().text = null;
-                showText = 0.0f;
+                
             }
+            
         }
         
     }
@@ -28,9 +34,15 @@ public class MessageFeedback : MonoBehaviour
     public void ShowMessage(string message, float currentTime)
     {
         feedbackPanel.SetActive(true);
-        textWriter.AddWriter(feedbackPanel.GetComponentInChildren<Text>(), message, 0.03f);
-        showText = textDuration + currentTime;
+        
+        textDuration = textWriter.AddWriter(feedbackPanel.GetComponentInChildren<Text>(), message, 0.03f);
+        Debug.Log(textDuration);
         
         
+    }
+
+    public void Complete()
+    {
+        menu.CheckCompleted(true);
     }
 }

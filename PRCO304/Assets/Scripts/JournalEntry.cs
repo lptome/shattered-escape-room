@@ -6,8 +6,6 @@ using UnityEngine;
 public class JournalEntry : ScriptableObject
 {
     public string entryName;
-    public string entryDate;
     public string description;
-    public Sprite icon;
 
 }

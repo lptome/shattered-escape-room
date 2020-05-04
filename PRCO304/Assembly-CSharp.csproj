@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\DoorUnlock.cs" />
     <Compile Include="Assets\Scripts\EntryPickup.cs" />
     <Compile Include="Assets\Scripts\EntryView.cs" />
@@ -80,9 +81,11 @@
     <Compile Include="Assets\Scripts\JournalEntry.cs" />
     <Compile Include="Assets\Scripts\JournalManager.cs" />
     <Compile Include="Assets\Scripts\JournalSlot.cs" />
+    <Compile Include="Assets\Scripts\ObjectMessage.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Player\Walking.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\UI\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\MessageFeedback.cs" />

@@ -7,14 +7,15 @@ public class EntryPickup : MonoBehaviour
 {
     [SerializeField] Journal journal;
     [SerializeField] JournalEntry journalEntry;
-    [SerializeField] MessageFeedback feedback;
-    [TextArea] public string message;
-    private float currentTime;
+    private bool triggered = false;
 
     void Click()
     {
-        currentTime = Time.deltaTime;
-        journal.AddEntry(journalEntry);
-        feedback.ShowMessage(message, currentTime);
+        if (triggered == false)
+        {
+            journal.AddEntry(journalEntry);
+            triggered = true;
+        }
+        
     }
 }

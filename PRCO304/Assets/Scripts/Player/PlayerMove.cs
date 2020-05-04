@@ -13,13 +13,14 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask groundMask;
 	public GameObject inventory;
 	public GameObject journal;
+	public AudioManager audioManager;
 	
 	
 	
 
-	public float speed;
-	public float walkSpeed = 12f;
-	public float sprintSpeed = 18f;
+	private float speed;
+	public float walkSpeed = 8f;
+	public float sprintSpeed = 10f;
 	public float gravity = -9.81f;
 
 	Vector3 velocity;
@@ -28,6 +29,8 @@ public class PlayerMove : MonoBehaviour
 	void Start()
 	{
 		tr = controller.transform;
+		audioManager.Play("MainTheme");
+		
 	}
 	// Update is called once per frame
 	void Update()
@@ -61,10 +64,7 @@ public class PlayerMove : MonoBehaviour
 			tr.localScale = tempScale;
 			tr.position = tempPosition;
 			}
-			else
-			{
-			
-			}
+
 			if (!IsPaused())
 			{
 			float x = Input.GetAxis("Horizontal");

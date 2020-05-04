@@ -6,7 +6,7 @@ public class Walking : MonoBehaviour
 {
 
     private float timer = 0.0f;
-    public float bobbingSpeed = 0.03f;
+    public float bobbingSpeed = 0.09f;
     public float bobbingIntensity = 0.12f;
     public float midpoint = 1.65f;
 
