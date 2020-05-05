@@ -114,6 +114,7 @@ public class Menu : MonoBehaviour
         {
             ToggleJournal();
             entryAdded = false;
+            complete = false;
         }
     }
 

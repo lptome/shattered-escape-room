@@ -61,7 +61,7 @@ public class PlayerLook : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
 			{
-				hit.transform.gameObject.SendMessage("Click", SendMessageOptions.DontRequireReceiver);
+				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 			}
 		}
 	}

@@ -63,10 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\DoorUnlock.cs" />
-    <Compile Include="Assets\Scripts\EntryPickup.cs" />
     <Compile Include="Assets\Scripts\EntryView.cs" />
     <Compile Include="Assets\Scripts\Items\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
@@ -78,10 +76,13 @@
     <Compile Include="Assets\Scripts\Items\Open.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedSlot.cs" />
-    <Compile Include="Assets\Scripts\Journal.cs" />
     <Compile Include="Assets\Scripts\JournalEntry.cs" />
-    <Compile Include="Assets\Scripts\JournalManager.cs" />
+    <Compile Include="Assets\Scripts\JournalNew\EntryPickup.cs" />
+    <Compile Include="Assets\Scripts\JournalNew\Interactable.cs" />
+    <Compile Include="Assets\Scripts\JournalNew\Journal.cs" />
     <Compile Include="Assets\Scripts\JournalSlot.cs" />
+    <Compile Include="Assets\Scripts\JournalUI.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\ObjectMessage.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />

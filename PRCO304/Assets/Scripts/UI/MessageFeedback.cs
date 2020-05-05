@@ -21,7 +21,7 @@ public class MessageFeedback : MonoBehaviour
             if (textDuration <= 0f)
             {
 
-                menu.WritingComplete();                                     //Tells the Menu class that the TextWriter is finished.
+                Complete();                                                 //Tells the Menu class that the TextWriter is finished.
                 feedbackPanel.SetActive(false);                             //Disables subtitles and resets text to null.
                 feedbackPanel.GetComponentInChildren<Text>().text = null;
                 

@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Open : MonoBehaviour
+public class Open : Interactable
 {
     public Animator anim;
-    void Click()
+
+    public override void Interact()
+    {
+        base.Interact();
+        OpenDoor();
+    }
+    void OpenDoor()
     {
         
         if (anim.GetBool("open") == false)

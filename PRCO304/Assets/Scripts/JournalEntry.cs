@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class JournalEntry : ScriptableObject
 {
+  
     public string entryName;
     public string description;
+
+   
 
 }

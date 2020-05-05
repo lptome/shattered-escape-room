@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectMessage : MonoBehaviour
+public class ObjectMessage : Interactable
 {
 
     [SerializeField] MessageFeedback feedback;
@@ -11,7 +11,12 @@ public class ObjectMessage : MonoBehaviour
     private float currentTime;
     private bool triggered = false;
 
-    void Click()
+    public override void Interact()
+    {
+        base.Interact();
+        WriteMessage();
+    }
+    void WriteMessage()
     {
         if (singleView == false)
         {

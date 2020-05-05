@@ -1,63 +1,25 @@
-﻿using System;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class JournalSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class JournalSlot : MonoBehaviour
 {
-    [SerializeField] Text text;
-    public event Action<JournalEntry> OnLeftClickEvent;
-    public event Action<JournalSlot> OnPointerEnterEvent;
-    public event Action<JournalSlot> OnPointerExitEvent;
+    public Text title;
+    JournalEntry journalEntry;
+    public EntryView entryView;
 
-    private JournalEntry _journalEntry;
-
-    public JournalEntry JournalEntry
+    public void AddEntry(JournalEntry newEntry)
     {
-        get { return _journalEntry; }
-        set
+        journalEntry = newEntry;
+        title.text = journalEntry.entryName;
+    }
+
+    public void View()
+    {
+        if (journalEntry != null)
         {
-            _journalEntry = value;
-            if (_journalEntry == null)
-            {
-                text.text = null;
-            }
-            else
-            {
-                text.text = _journalEntry.entryName;
-            }
+            entryView.ShowEntry(journalEntry);
         }
-    }
 
-    protected virtual void OnValidate()
-    {
-        if (text == null)
-        {
-            text = GetComponent<Text>();
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData != null && eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (JournalEntry != null && OnLeftClickEvent != null)
-            {
-                OnLeftClickEvent(JournalEntry);
-                Debug.Log("Working.");
-            }
-        }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (OnPointerEnterEvent != null)
-            OnPointerEnterEvent(this);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (OnPointerExitEvent != null)
-            OnPointerExitEvent(this);
     }
 }
