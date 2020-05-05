@@ -10,8 +10,8 @@ public class Menu : MonoBehaviour
     public GameObject entryPanel;
     private bool journalEnabled;
     private bool inventoryEnabled;
-    private bool complete;
-    private bool entryAdded;
+    private bool complete = false;
+    private bool entryAdded = false;
     void Start()
     {
         journalPanel.SetActive(false);
@@ -21,7 +21,6 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NewEntry();
 
         if (inventoryEnabled == false)
         {
@@ -107,27 +106,20 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void CheckCompleted(bool doneTyping)
+    public void WritingComplete()
     {
-        complete = doneTyping;
-    }
+        complete = true;
 
-    public void NewEntry()
-    {
-        if (complete == true && entryAdded == true)
+        if (entryAdded == true)
         {
             ToggleJournal();
-            complete = false;
             entryAdded = false;
-        }
-        if (complete == true && entryAdded == false)
-        {
-            complete = false;
         }
     }
 
-    public void CheckEntryAdded(bool added)
+
+    public void EntryAdded()
     {
-        entryAdded = added;
+        entryAdded = true;
     }
 }

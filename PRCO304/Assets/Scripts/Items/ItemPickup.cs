@@ -9,11 +9,13 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] Item item;
     [SerializeField] MessageFeedback messageFeedback;
     [SerializeField] string message;
+    public AudioManager audioManager;
 
     
     void PickUp()
     {
-        
+
+        audioManager.Play("ItemPickup");
         inventory.AddItem(item);
         float currentTime = Time.time;
         messageFeedback.ShowMessage(message, currentTime);

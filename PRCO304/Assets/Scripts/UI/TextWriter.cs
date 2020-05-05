@@ -19,7 +19,7 @@ public class TextWriter : MonoBehaviour
         this.timePerCharacter = timePerCharacter;
         charIndex = 0;
         
-        return timePerCharacter * textToWrite.Length + 1f;
+        return timePerCharacter * textToWrite.Length + 0.5f;
         
     }
 

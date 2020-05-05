@@ -39,7 +39,7 @@ public class Journal : MonoBehaviour
             if (journalSlots[i].JournalEntry == null)
             {
                 journalSlots[i].JournalEntry = journalEntry;
-                menu.CheckEntryAdded(true);
+                menu.EntryAdded();                                          //Tells the Menu class that a new journal entry has been added.
                 return true;
             }
         }
