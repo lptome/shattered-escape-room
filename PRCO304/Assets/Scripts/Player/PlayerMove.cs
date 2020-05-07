@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -35,6 +34,10 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
+		if (EventSystem.current.IsPointerOverGameObject())
+			return;
+
 		float vScale = 1.3f;
 
 			isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -57,16 +60,15 @@ public class PlayerMove : MonoBehaviour
 			if  (Input.GetKey(KeyCode.LeftControl))
 			{
 			vScale = 0.5f;
-			Vector3 tempScale = tr.localScale;
-			Vector3 tempPosition = tr.position;
+			Vector3 tempScale2 = tr.localScale;
+			Vector3 tempPosition2 = tr.position;
 
-			tempScale.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
-			tr.localScale = tempScale;
-			tr.position = tempPosition;
+			tempScale2.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
+			tr.localScale = tempScale2;
+			tr.position = tempPosition2;
 			}
 
-			if (!IsPaused())
-			{
+			
 			float x = Input.GetAxis("Horizontal");
 			float z = Input.GetAxis("Vertical");
 
@@ -86,7 +88,7 @@ public class PlayerMove : MonoBehaviour
 
 			controller.Move(velocity * Time.deltaTime);
 
-			}
+			
 	}
 
 	bool IsPaused()

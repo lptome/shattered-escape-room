@@ -63,9 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\DoorUnlock.cs" />
-    <Compile Include="Assets\Scripts\EntryView.cs" />
     <Compile Include="Assets\Scripts\Items\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryManager.cs" />
@@ -76,22 +73,27 @@
     <Compile Include="Assets\Scripts\Items\Open.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedSlot.cs" />
-    <Compile Include="Assets\Scripts\JournalEntry.cs" />
-    <Compile Include="Assets\Scripts\JournalNew\EntryPickup.cs" />
-    <Compile Include="Assets\Scripts\JournalNew\Interactable.cs" />
-    <Compile Include="Assets\Scripts\JournalNew\Journal.cs" />
-    <Compile Include="Assets\Scripts\JournalSlot.cs" />
-    <Compile Include="Assets\Scripts\JournalUI.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\ObjectMessage.cs" />
+    <Compile Include="Assets\Scripts\Journal\EntryPickup.cs" />
+    <Compile Include="Assets\Scripts\Journal\EntryView.cs" />
+    <Compile Include="Assets\Scripts\Journal\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Journal\Journal.cs" />
+    <Compile Include="Assets\Scripts\Journal\JournalEntry.cs" />
+    <Compile Include="Assets\Scripts\Journal\JournalSlot.cs" />
+    <Compile Include="Assets\Scripts\Journal\JournalUI.cs" />
+    <Compile Include="Assets\Scripts\Messages\Message.cs" />
+    <Compile Include="Assets\Scripts\Messages\MessageFeedback.cs" />
+    <Compile Include="Assets\Scripts\Messages\MessageManager.cs" />
+    <Compile Include="Assets\Scripts\Messages\MessageTrigger.cs" />
+    <Compile Include="Assets\Scripts\Messages\TextWriter.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Player\Walking.cs" />
-    <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\DoorUnlock.cs" />
+    <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Sound\Sound.cs" />
     <Compile Include="Assets\Scripts\UI\ItemTooltip.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
-    <Compile Include="Assets\Scripts\UI\MessageFeedback.cs" />
-    <Compile Include="Assets\Scripts\UI\TextWriter.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

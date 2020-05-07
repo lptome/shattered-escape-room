@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Walking : MonoBehaviour
@@ -14,6 +13,8 @@ public class Walking : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         float waveslice = 0.0f;
         float footstep = 0.0f;
         float horizontal = Input.GetAxis("Horizontal");

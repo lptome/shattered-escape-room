@@ -34,7 +34,7 @@ public class InteractableObject : MonoBehaviour
 
  
 
-    void Click()
+    void Interact()
     {
         if (selectedPanel.isActiveAndEnabled && selectedPanel.CheckItem(itemNeeded.itemName))
         {

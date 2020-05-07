@@ -8,6 +8,10 @@ public class Menu : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject tooltipPanel;
     public GameObject entryPanel;
+
+
+    public MessageManager messageManager;
+
     private bool journalEnabled;
     private bool inventoryEnabled;
     private bool complete = false;
@@ -21,6 +25,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         if (inventoryEnabled == false)
         {

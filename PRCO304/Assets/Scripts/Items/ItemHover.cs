@@ -7,7 +7,6 @@ public class ItemHover : MonoBehaviour
 
     [SerializeField] MessageFeedback messageFeedback;
     [SerializeField] string message;
-    
    
     void Hover()
     {
