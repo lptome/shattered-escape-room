@@ -3,38 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : Interactable
 {
     [SerializeField] Item itemNeeded;
     [SerializeField] Item itemGiven;
     [SerializeField] Inventory inventory;
     [SerializeField] SelectedPanel selectedPanel;
-    [SerializeField] MessageFeedback feedback;
+    public MessageManager messageManager;
+    
 
     public GameObject popupMessage;
     
     //These are used to store the object appearance before and after an item is used.
     public GameObject initialObject;        
-    public GameObject finalObject;       
-    
-    
+    public GameObject finalObject;
 
-    //These two strings can be changed in the editor per necessary, default text displays a description of the object,
-    //interactText displays a message once the correct item is used on the object.
-    [TextArea] public string defaultText;
-    [TextArea] public string interactText;
 
+
+   
     //Determines whether object is destroyed once the correct item is used on it.
     public bool destructable;
 
-    //Stores current time
-    private float currentTime;
-    
 
 
- 
 
-    void Interact()
+    private void Start()
+    {
+        
+    }
+
+    public override void Interact()
+    {
+        base.Interact();
+        ClickObject();
+    }
+
+    void ClickObject()
     {
         if (selectedPanel.isActiveAndEnabled && selectedPanel.CheckItem(itemNeeded.itemName))
         {
@@ -49,8 +53,8 @@ public class InteractableObject : MonoBehaviour
                 initialObject.SetActive(false);
             }
 
-            currentTime = Time.time;
-            feedback.ShowMessage(interactText, currentTime);
+            
+           // messageManager.StartMessage(message1.message);
 
             if (itemGiven != null)
             {
@@ -63,8 +67,7 @@ public class InteractableObject : MonoBehaviour
 
         else
         {
-            currentTime = Time.time;
-            feedback.ShowMessage(defaultText, currentTime);
+           // messageManager.StartMessage(message2.message);
         }
     }
 }

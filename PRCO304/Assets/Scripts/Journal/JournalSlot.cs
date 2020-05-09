@@ -9,7 +9,7 @@ public class JournalSlot : MonoBehaviour
     Button button;
     public Image image;
     public EntryView entryView;
-    public Menu menu;
+    public UIManager menu;
 
     public void Start()
     {

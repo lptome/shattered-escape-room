@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MessageFeedback : MonoBehaviour
 {
     [SerializeField] private TextWriter textWriter;
-    public Menu menu;
+    public UIManager menu;
     public GameObject feedbackPanel;
     public Text messageBox;
     private float textDuration;

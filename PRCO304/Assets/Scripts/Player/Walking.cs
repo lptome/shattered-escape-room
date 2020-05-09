@@ -54,7 +54,7 @@ public class Walking : MonoBehaviour
             totalAxes = Mathf.Clamp(totalAxes, 0.0f, 1.0f);
             translateChange = totalAxes * translateChange;
             position.y = midpoint + translateChange;
-            //audioManager.Play("Footsteps");
+            
 
         }
         else

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerLook : MonoBehaviour
 {
@@ -28,9 +27,9 @@ public class PlayerLook : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
-		if (!IsPaused()) 
-		{ 
+		if (EventSystem.current.IsPointerOverGameObject())
+			return;
+		
 			float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 			float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -51,7 +50,7 @@ public class PlayerLook : MonoBehaviour
 			}
 
 			Hover();
-		}
+		
 	}
 
 	void Click()
@@ -73,7 +72,7 @@ public class PlayerLook : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 			{
-				hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);
+				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 			}
 		}
 

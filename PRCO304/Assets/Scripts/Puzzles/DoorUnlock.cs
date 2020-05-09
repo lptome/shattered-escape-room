@@ -3,36 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorUnlock : MonoBehaviour
+public class DoorUnlock : Interactable
 {
 
-    [SerializeField] Item item;
-    [SerializeField] Inventory inventory;
-    [SerializeField] MessageFeedback feedback;
     public Animator anim;
     private bool locked = true;
-    private float currentTime;
-    public SelectedPanel selectedPanel;
 
 
 
    
-    void Interact()
-    {
-
-        if (selectedPanel.isActiveAndEnabled && selectedPanel.CheckItem(item.itemName))
-        {
-            locked = false;
-            if (item.singleUse == true)
-            {
-                inventory.RemoveItem(item);
-                selectedPanel.HidePanel();
-            }
-            string message = "Unlocked!";
-            currentTime = Time.time;
-            feedback.ShowMessage(message, currentTime);
-        }
-            
+    public override void Interact()
+    { 
 
         if (locked == false)
         {
@@ -46,10 +27,12 @@ public class DoorUnlock : MonoBehaviour
         }
         else
         {
-            string message = "It's locked.";
-            currentTime = Time.time;
-            feedback.ShowMessage(message, currentTime);
+            
         }
     }
 
+    public void Unlock()
+    {
+        locked = false;
+    }
 }

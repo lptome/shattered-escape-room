@@ -20,9 +20,9 @@ public class EntryPickup : Interactable
         {
             Journal.instance.Add(journalEntry);
             triggered = true;
-            Debug.Log("PickedUp successfully");
+           
         }
-        Debug.Log("Picking up");
+    
         
     }
 }
