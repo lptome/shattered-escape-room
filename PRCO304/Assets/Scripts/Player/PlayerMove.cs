@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
 	void Start()
 	{
 		tr = controller.transform;
-		audioManager.Play("MainTheme");
+		//audioManager.Play("MainTheme");
 		
 	}
 	// Update is called once per frame

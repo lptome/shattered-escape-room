@@ -14,7 +14,6 @@ public class Open : Interactable
     void OpenDoor()
     {
 
-        Debug.Log("Opening.");
         
         if (anim.GetBool("open") == false)
         {

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     public GameObject tooltipPanel;
     public GameObject entryPanel;
     public GameObject inputField;
+    public AudioManager audioManager;
 
     public Journal journal;
     public EntryView entryView;
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     private bool inventoryEnabled;
     private bool complete = false;
     private bool entryAdded = false;
+    private bool played = false;
     void Start()
     {
         journalPanel.SetActive(false);
@@ -27,6 +29,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+      
 
         if (inventoryEnabled == false)
         {
@@ -60,6 +63,11 @@ public class UIManager : MonoBehaviour
                 journalEnabled = !journalEnabled;
             }
             HideMouse();
+        }
+
+        if (entryPanel.activeInHierarchy == true)
+        {
+            PlayHorrorTrack();
         }
     }
 
@@ -149,5 +157,16 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    void PlayHorrorTrack()
+    {
+        if (played == false)
+        {
+            audioManager.Play("HorrorTrack1");
+            played = true;
+        }
+        
+        Debug.Log("Playing theme");
     }
 }
