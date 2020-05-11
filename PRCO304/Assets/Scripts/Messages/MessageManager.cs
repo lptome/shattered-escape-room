@@ -7,10 +7,12 @@ public class MessageManager : MonoBehaviour
 {
     private Queue<string> sentences;
     public Text messageBox;
+    public Image alphaPanel;
     public GameObject messagePanel;
     public UIManager menu;
-    public AudioManager audioManager;
+    public SoundEffectsManager soundFXManager;
     private bool allDone = false;
+    private Color tempColor;
 
 
     private void Update()
@@ -27,14 +29,21 @@ public class MessageManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+        
+
+
     }
 
     public void StartMessage(Message message)
     {
-        
+        tempColor = alphaPanel.color;
+        tempColor.a = 0.3f;
+        alphaPanel.color = tempColor;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         sentences.Clear();
+        
 
         foreach(string sentence in message.sentences)
         {
@@ -68,6 +77,10 @@ public class MessageManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menu.WritingComplete();
 
+        tempColor.a = 0f;
+        alphaPanel.color = tempColor;
+        
+
     }
 
     IEnumerator TypeMessage(string sentence)
@@ -75,7 +88,7 @@ public class MessageManager : MonoBehaviour
         messageBox.text = "";
         foreach(char letter in sentence.ToCharArray())
         {   
-            audioManager.Play("TextWriter");
+            soundFXManager.Play("TextWriter");
             messageBox.text += letter;           
             yield return null;
         

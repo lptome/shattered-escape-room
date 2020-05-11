@@ -7,7 +7,7 @@ public class ItemPickup : Interactable
     [SerializeField] GameObject itemModel;
     [SerializeField] Inventory inventory;
     [SerializeField] Item item;
-    public AudioManager audioManager;
+    public SoundEffectsManager audioManager;
 
 
     public override void Interact()

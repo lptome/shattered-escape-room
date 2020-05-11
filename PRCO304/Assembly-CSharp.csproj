@@ -63,6 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
+    <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\MD Office\Scripts &amp; Animations\FanRotation.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor1.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\X Axis\Drawer_Pull_X.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\Z Axis\Drawer_Pull_Z.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow.cs" />
+    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
     <Compile Include="Assets\Scripts\Items\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryManager.cs" />
@@ -71,6 +80,7 @@
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\Open.cs" />
+    <Compile Include="Assets\Scripts\Items\Radio.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedPanel.cs" />
     <Compile Include="Assets\Scripts\Items\SelectedSlot.cs" />
     <Compile Include="Assets\Scripts\Journal\EntryPickup.cs" />
@@ -92,8 +102,10 @@
     <Compile Include="Assets\Scripts\Puzzles\Keypad.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Lever.cs" />
     <Compile Include="Assets\Scripts\Puzzles\LeverPuzzle.cs" />
-    <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Sound\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Sound\Sound.cs" />
+    <Compile Include="Assets\Scripts\Sound\SoundEffectsManager.cs" />
+    <Compile Include="Assets\Scripts\Sound\SwitchMusicTrigger.cs" />
     <Compile Include="Assets\Scripts\UI\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />

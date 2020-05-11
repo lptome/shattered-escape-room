@@ -5,13 +5,13 @@ using UnityEngine;
 public class Lever : Interactable
 {
     public Animator anim;
-    public AudioManager audioManager;
+    public SoundEffectsManager audioManager;
 
     public bool faceUp = true;
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<SoundEffectsManager>();
     }
     public override void Interact()
     {

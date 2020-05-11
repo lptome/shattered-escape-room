@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TextWriter : MonoBehaviour
 {
-    public AudioManager audioManager;
+    public SoundEffectsManager audioManager;
     private Text messageBox;
     private string textToWrite;
     private int charIndex;

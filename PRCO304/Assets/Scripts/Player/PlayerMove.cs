@@ -12,7 +12,9 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask groundMask;
 	public GameObject inventory;
 	public GameObject journal;
-	public AudioManager audioManager;
+	public SoundEffectsManager soundFXManager;
+	public MusicManager musicManager;
+	public AudioClip mainTheme;
 	
 	
 	
@@ -28,7 +30,7 @@ public class PlayerMove : MonoBehaviour
 	void Start()
 	{
 		tr = controller.transform;
-		//audioManager.Play("MainTheme");
+		musicManager.ChangeTrack(mainTheme);
 		
 	}
 	// Update is called once per frame

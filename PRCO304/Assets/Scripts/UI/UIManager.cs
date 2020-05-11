@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public GameObject tooltipPanel;
     public GameObject entryPanel;
     public GameObject inputField;
-    public AudioManager audioManager;
+    public SoundEffectsManager audioManager;
 
     public Journal journal;
     public EntryView entryView;
@@ -18,11 +18,12 @@ public class UIManager : MonoBehaviour
     private bool inventoryEnabled;
     private bool complete = false;
     private bool entryAdded = false;
-    private bool played = false;
+   
     void Start()
     {
         journalPanel.SetActive(false);
         inventoryPanel.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -65,10 +66,7 @@ public class UIManager : MonoBehaviour
             HideMouse();
         }
 
-        if (entryPanel.activeInHierarchy == true)
-        {
-            PlayHorrorTrack();
-        }
+        
     }
 
     public void ToggleInventory()
@@ -122,8 +120,10 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+           
             journalPanel.SetActive(false);
             HideMouse();
+            
 
         }
     }
@@ -159,14 +159,5 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void PlayHorrorTrack()
-    {
-        if (played == false)
-        {
-            audioManager.Play("HorrorTrack1");
-            played = true;
-        }
-        
-        Debug.Log("Playing theme");
-    }
+   
 }

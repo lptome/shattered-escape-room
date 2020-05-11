@@ -9,20 +9,24 @@ public class Walking : MonoBehaviour
     public float bobbingIntensity = 0.08f;
     public float midpoint = 1.65f;
     private bool bPos = true;
-    public AudioManager audioManager;
+    public SoundEffectsManager soundFXManager;
 
     void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+        
+
         float waveslice = 0.0f;
         float footstep = 0.0f;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-       
+
 
         Vector3 position = transform.localPosition;
-        
+
+        //pause camera bobbing if UI is open, the second condition stops the movement only after the current bob is close enough to the midpoint
+        //NB: If tolerance too low camera stutters when returning to default position. If too high then it will still register input while key is held down.
+        if (EventSystem.current.IsPointerOverGameObject() && (Mathf.Abs(position.y - midpoint) < 0.01))
+            return;
 
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
         {
@@ -34,10 +38,10 @@ public class Walking : MonoBehaviour
             footstep = Mathf.Cos(timer);
 
             if (footstep < 0 && bPos)
-                audioManager.Play("Footsteps");
+                soundFXManager.Play("Footsteps");
 
             if (footstep > 0 && !bPos)
-                audioManager.Play("Footsteps");
+                soundFXManager.Play("Footsteps");
 
             bPos = footstep >= 0;
 
@@ -63,6 +67,8 @@ public class Walking : MonoBehaviour
         }
 
         transform.localPosition = position;
+
+        
     }
 
 
