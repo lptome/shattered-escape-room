@@ -6,6 +6,7 @@ public class Open : Interactable
 {
     public Animator anim;
 
+
     public override void Interact()
     {
         base.Interact();

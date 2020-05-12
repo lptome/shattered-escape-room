@@ -51,3 +51,31 @@ Update Mode: updateDependencies
 
 The following packages were updated:
   com.unity.test-framework from version 1.1.9 to 1.1.11
+
+=== Tue May 12 00:32:45 2020
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.ads@2.0.8
+  com.unity.analytics@3.2.2
+  com.unity.package-manager-ui@2.0.8
+  com.unity.postprocessing@2.3.0
+  com.unity.purchasing@2.0.3
+The following packages were updated:
+  com.unity.progrids from version 3.0.3-preview.4 to 3.0.3-preview.5
+
+=== Tue May 12 00:45:12 2020
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.unity.ads@2.0.8
+  com.unity.analytics@3.2.2
+  com.unity.package-manager-ui@2.0.8
+  com.unity.postprocessing@2.3.0
+  com.unity.probuilder@4.2.3
+  com.unity.progrids@3.0.3-preview.5
+  com.unity.purchasing@2.0.3

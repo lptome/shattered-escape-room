@@ -13,7 +13,7 @@ public class PlayerLook : MonoBehaviour
 	public Camera playerCamera;
 	public GameObject inventory;
 	public GameObject journal;
-
+	public MessageManager messageManager;
 
 	float xRotation = 0f;
 	// Use this for initialization
@@ -49,51 +49,49 @@ public class PlayerLook : MonoBehaviour
 				PickUp();
 			}
 
-			Hover();
+		//Hover();
 		
 	}
 
 	void Click()
 	{
-		if (!IsPaused())
-		{
+		
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
 			{
 				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 			}
-		}
+		
 	}
 
 	void PickUp()
 	{
-		if (!IsPaused())
-		{
+		
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 			{
 				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+				Debug.Log("Pick up");
 			}
-		}
 
+		
 		
 	}
 
 	void Hover()
 	{
-		if (!IsPaused())
+		
+		RaycastHit hit;
+		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 		{
-			RaycastHit hit;
-			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
-			{
-				hit.transform.gameObject.SendMessage("Hover", SendMessageOptions.DontRequireReceiver);
-			}
+			hit.transform.gameObject.SendMessage("Hover", SendMessageOptions.DontRequireReceiver);
 		}
+		else
+		{
+			messageManager.StopHovering();
+		}
+
+		
 	}
-	bool IsPaused()
-	{
-		if (inventory.activeInHierarchy == true || journal.activeInHierarchy == true)
-			return true;
-		else return false;
-	}
+	
 }

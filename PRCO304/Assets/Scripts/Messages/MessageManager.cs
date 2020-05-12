@@ -9,10 +9,13 @@ public class MessageManager : MonoBehaviour
     public Text messageBox;
     public Image alphaPanel;
     public GameObject messagePanel;
+    public Text hoverText;
+    public GameObject hoverPanel;
     public UIManager menu;
     public SoundEffectsManager soundFXManager;
     private bool allDone = false;
     private Color tempColor;
+  
 
 
     private void Update()
@@ -25,6 +28,8 @@ public class MessageManager : MonoBehaviour
             }
         }
 
+        
+
     }
     private void Start()
     {
@@ -36,6 +41,7 @@ public class MessageManager : MonoBehaviour
 
     public void StartMessage(Message message)
     {
+        
         tempColor = alphaPanel.color;
         tempColor.a = 0.3f;
         alphaPanel.color = tempColor;
@@ -58,6 +64,7 @@ public class MessageManager : MonoBehaviour
     public void DisplayNextMessage()
     {
         allDone = false;
+        
         messagePanel.SetActive(true);
         if (sentences.Count == 0)
         {
@@ -67,6 +74,7 @@ public class MessageManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
+        StopHovering();
         StartCoroutine(TypeMessage(sentence));
     }
 
@@ -97,4 +105,15 @@ public class MessageManager : MonoBehaviour
     }
 
    
+    public void HoverMessage(string message)
+    {
+        hoverPanel.SetActive(true);
+        hoverText.text = message;
+    }
+
+    public void StopHovering()
+    {
+        hoverText.text = "";
+        hoverPanel.SetActive(false);
+    }
 }
