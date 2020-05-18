@@ -63,15 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
-    <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\MD Office\Scripts &amp; Animations\FanRotation.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor1.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\X Axis\Drawer_Pull_X.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\Z Axis\Drawer_Pull_Z.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow.cs" />
-    <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
+    <Compile Include="Assets\Game Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
+    <Compile Include="Assets\Game Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\MD Office\Scripts &amp; Animations\FanRotation.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Doors\opencloseDoor1.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\X Axis\Drawer_Pull_X.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Drawer\Z Axis\Drawer_Pull_Z.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow.cs" />
+    <Compile Include="Assets\Game Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
@@ -105,22 +105,24 @@
     <Compile Include="Assets\Scripts\Sound\Sound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundEffectsManager.cs" />
     <Compile Include="Assets\Scripts\Sound\SwitchMusicTrigger.cs" />
+    <Compile Include="Assets\Scripts\TriggerEnter.cs" />
     <Compile Include="Assets\Scripts\UI\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\SettingsMenu.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Imported Assets\BrokenVector\LowPolyShaders\README.txt" />
+    <None Include="Assets\Game Assets\BrokenVector\LowPolyShaders\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Imported Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
+    <None Include="Assets\Game Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Imported Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
+    <None Include="Assets\Game Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />

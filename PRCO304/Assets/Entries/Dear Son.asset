@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef79dc99d1dd28f489ba7f33ca0f528f, type: 3}
+  m_Name: Dear Son
+  m_EditorClassIdentifier: 
+  entryName: My Dear Son
+  description: "Welcome home,\n\nI hope you had a good time studying abroad, we've
+    all missed you dearly. I'm sure you'll notice there have been some changes around
+    here; I do apologise. I simply cannot wait to see you again and catch up, but
+    say, shall we play a little game first? You see, I need your help with something,
+    my old brain isn't what it used to be, and I've found myself doubting my capabilities
+    lately. \n\nYou've always been so intelligent, would you be so kind as to help
+    me with my research? I just need to make sure I've come to the right conclusions.
+    \n\nOh, but it would be rude of me to ask for your help without anything in return,
+    so I've prepared some puzzles for you. You always loved those. Don't think about
+    it too much, just have a look around the house, I'll check in with you periodically.\n\n-
+    Dad"

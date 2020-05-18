@@ -8,6 +8,7 @@ public class DoorUnlock : Interactable
 
     public Animator anim;
     private bool locked = true;
+    private bool open = false;
 
 
 
@@ -17,13 +18,17 @@ public class DoorUnlock : Interactable
 
         if (locked == false)
         {
-            if (anim.GetBool("open") == false)
+            if (open == false)
             {
-                anim.SetTrigger("open");
-                
+                anim.Play("Opening 1");
+                open = true;
             }
             else
-                anim.ResetTrigger("open");
+            {
+                anim.Play("Closing 1");
+                open = false;
+            }
+                
         }
         else
         {
@@ -34,5 +39,6 @@ public class DoorUnlock : Interactable
     public void Unlock()
     {
         locked = false;
+        anim.Play("Opening 1");
     }
 }

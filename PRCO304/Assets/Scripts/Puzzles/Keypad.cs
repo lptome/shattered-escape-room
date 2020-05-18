@@ -7,14 +7,23 @@ public class Keypad : Interactable
 {
     public GameObject inputFieldObject;
     public InputField inputField;
-    public UIManager UI;
+    private UIManager UI;
+    private SoundEffectsManager soundEffectsManager;
     private string code = "IKRJ";
     private string userInput;
     public DoorUnlock door;
 
 
-
-   
+    private void Update()
+    {
+        inputField.text = inputField.text.ToUpper();
+    }
+    private void Start()
+    {
+        UI = FindObjectOfType<UIManager>();
+        soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
+        
+    }
     public override void Interact()
     {
         base.Interact();
@@ -37,13 +46,13 @@ public class Keypad : Interactable
             door.Unlock();
             inputFieldObject.SetActive(false);
             UI.HideMouse();
-            Debug.Log("Correct code!");
+            soundEffectsManager.Play("CorrectCode");
+            Destroy(this);
             
         }
         else
         {
-            Debug.Log("Incorrect code.");
-            //show wrong code error.
+            soundEffectsManager.Play("WrongCode");
         }
     }
 }

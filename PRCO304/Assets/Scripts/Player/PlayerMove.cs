@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 
 	public CharacterController controller;
 	public Transform groundCheck;
-	public Transform tr;
+	private Transform tr;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
 	public GameObject inventory;
@@ -61,13 +61,13 @@ public class PlayerMove : MonoBehaviour
 
 			if  (Input.GetKey(KeyCode.LeftControl))
 			{
-			vScale = 0.5f;
-			Vector3 tempScale2 = tr.localScale;
-			Vector3 tempPosition2 = tr.position;
+				vScale -= 0.5f;
+				Vector3 tempScale2 = tr.localScale;
+				Vector3 tempPosition2 = tr.position;
 
-			tempScale2.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
-			tr.localScale = tempScale2;
-			tr.position = tempPosition2;
+				tempScale2.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
+				tr.localScale = tempScale2;
+				tr.position = tempPosition2;
 			}
 
 			
@@ -93,11 +93,6 @@ public class PlayerMove : MonoBehaviour
 			
 	}
 
-	bool IsPaused()
-	{
-		if (inventory.activeInHierarchy == true || journal.activeInHierarchy == true)
-			return true;
-		else return false;
-	}
+	
 
 }

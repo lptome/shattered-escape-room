@@ -8,11 +8,20 @@ public class MainMenu : MonoBehaviour
 
     public Animator transition;
     public float transitionTime = 1f;
+
+    private void Start()
+    {
+
+    }
     public void PlayGame()
     {
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1)); 
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     IEnumerator LoadScene(int sceneIndex)
     {
         transition.SetTrigger("Start");
@@ -21,4 +30,5 @@ public class MainMenu : MonoBehaviour
 
         SceneManager.LoadScene(sceneIndex);
     }
+
 }

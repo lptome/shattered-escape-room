@@ -17,10 +17,7 @@ public class JournalUI : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
+    
 
     void UpdateUI()
     {

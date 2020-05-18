@@ -14,10 +14,12 @@ public class PuzzleObject : Interactable
 
     [SerializeField] Inventory inventory;
     [SerializeField] SelectedPanel selectedPanel;
-    public MessageManager messageManager;
-    
+    private MessageManager messageManager;
+    private SoundEffectsManager soundEffectsManager;
 
-    public GameObject popupMessage;
+    //A message that will tell the player the item is incorrect.
+    public Message wrongItemMessage;
+    public Message defaultMessage;
     
     //These are used to store the object appearance before and after an item is used.
     public GameObject initialObject;        
@@ -31,10 +33,11 @@ public class PuzzleObject : Interactable
 
 
 
-
+   
     private void Start()
     {
-        
+        messageManager = FindObjectOfType<MessageManager>();
+        soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
     }
 
     public override void Interact()
@@ -59,7 +62,6 @@ public class PuzzleObject : Interactable
             }
 
             
-           // messageManager.StartMessage(message1.message);
 
             if (itemGiven != null)
             {
@@ -69,11 +71,17 @@ public class PuzzleObject : Interactable
 
             finalObject.SetActive(true);
             selectedPanel.HidePanel();
+            soundEffectsManager.Play("ObjectInteract");
         }
 
-        else
+        else if (selectedPanel.isActiveAndEnabled && wrongItemMessage != null)
         {
-           // messageManager.StartMessage(message2.message);
+            messageManager.StartMessage(wrongItemMessage);
+        }
+
+        else if (defaultMessage != null)
+        {
+            messageManager.StartMessage(defaultMessage);
         }
     }
 }

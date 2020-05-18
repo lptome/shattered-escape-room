@@ -5,7 +5,7 @@ using UnityEngine;
 public class Open : Interactable
 {
     public Animator anim;
-
+    private bool open = false;
 
     public override void Interact()
     {
@@ -15,14 +15,20 @@ public class Open : Interactable
     void OpenDoor()
     {
 
-        
-        if (anim.GetBool("open") == false)
+
+        if (open == false)
         {
-            anim.SetTrigger("open");
+            anim.Play("Open");
+            open = true;
 
         }
         else
-            anim.ResetTrigger("open");
+        {
+            anim.Play("Close");
+            open = false;
+        }
+            
+
     }
 
    

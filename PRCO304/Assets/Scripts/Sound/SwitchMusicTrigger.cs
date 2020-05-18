@@ -6,13 +6,17 @@ public class SwitchMusicTrigger : Interactable
 {
 
     public AudioClip newTrack;
-    public MusicManager musicManager;
+    private MusicManager musicManager;
     public override void Interact()
     {
         base.Interact();
         SwitchTrack();
     }
 
+    private void Start()
+    {
+        musicManager = FindObjectOfType<MusicManager>();
+    }
     void SwitchTrack()
     {
         musicManager.ChangeTrack(newTrack);

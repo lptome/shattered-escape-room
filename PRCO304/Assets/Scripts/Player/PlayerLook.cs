@@ -49,7 +49,7 @@ public class PlayerLook : MonoBehaviour
 				PickUp();
 			}
 
-		//Hover();
+		Hover();
 		
 	}
 
@@ -71,7 +71,7 @@ public class PlayerLook : MonoBehaviour
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 			{
 				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
-				Debug.Log("Pick up");
+				
 			}
 
 		

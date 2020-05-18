@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
     public GameObject tooltipPanel;
     public GameObject entryPanel;
     public GameObject inputField;
-    public SoundEffectsManager audioManager;
+    private SoundEffectsManager audioManager;
+    private ItemTooltip tooltip;
 
     public Journal journal;
     public EntryView entryView;
@@ -16,13 +17,15 @@ public class UIManager : MonoBehaviour
 
     private bool journalEnabled;
     private bool inventoryEnabled;
-    private bool complete = false;
     private bool entryAdded = false;
    
+
     void Start()
     {
         journalPanel.SetActive(false);
         inventoryPanel.SetActive(false);
+        audioManager = FindObjectOfType<SoundEffectsManager>();
+        tooltip = FindObjectOfType<ItemTooltip>();
         
     }
 
@@ -30,8 +33,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-      
-
         if (inventoryEnabled == false)
         {
             tooltipPanel.SetActive(false);
@@ -108,6 +109,7 @@ public class UIManager : MonoBehaviour
             {
                 int lastEntry = journal.entries.Count - 1;
                 entryView.ShowEntry(journal.entries[lastEntry]);
+                entryAdded = false;
             }
             else if (journal.entries.Count != 0)
             {
@@ -130,13 +132,10 @@ public class UIManager : MonoBehaviour
 
     public void WritingComplete()
     {
-        complete = true;
-
         if (entryAdded == true)
         {
             ToggleJournal();
             entryAdded = false;
-            complete = false;
         }
     }
 
@@ -145,6 +144,7 @@ public class UIManager : MonoBehaviour
     {
         entryAdded = true;
     }
+
 
     public void ShowMouse()
     {
@@ -160,4 +160,5 @@ public class UIManager : MonoBehaviour
     }
 
    
+    
 }

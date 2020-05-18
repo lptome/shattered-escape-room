@@ -6,7 +6,7 @@ public class EntryPickup : Interactable
 {
     
     public JournalEntry journalEntry;
-    private bool triggered = false;
+
 
     public override void Interact()
     {
@@ -16,13 +16,7 @@ public class EntryPickup : Interactable
 
     void PickUp()
     {
-        if (triggered == false)
-        {
-            Journal.instance.Add(journalEntry);
-            triggered = true;
-           
-        }
-    
-        
+        Journal.instance.Add(journalEntry);
+        Destroy(this);
     }
 }
