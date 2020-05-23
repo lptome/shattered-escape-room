@@ -20,12 +20,12 @@ public class DoorUnlock : Interactable
         {
             if (open == false)
             {
-                anim.Play("Opening 1");
+                anim.Play("Open");
                 open = true;
             }
             else
             {
-                anim.Play("Closing 1");
+                anim.Play("Close");
                 open = false;
             }
                 
@@ -39,6 +39,6 @@ public class DoorUnlock : Interactable
     public void Unlock()
     {
         locked = false;
-        anim.Play("Opening 1");
+        anim.Play("Open");
     }
 }

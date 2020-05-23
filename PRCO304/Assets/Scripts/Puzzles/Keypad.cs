@@ -12,11 +12,23 @@ public class Keypad : Interactable
     private string code = "IKRJ";
     private string userInput;
     public DoorUnlock door;
+    public Hint hint;
 
 
     private void Update()
     {
         inputField.text = inputField.text.ToUpper();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UI.HideMouse();
+            inputFieldObject.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CheckCode();
+        }
     }
     private void Start()
     {
@@ -26,7 +38,7 @@ public class Keypad : Interactable
     }
     public override void Interact()
     {
-        base.Interact();
+       // base.Interact();
         EnterCode();
     }
 
@@ -53,6 +65,7 @@ public class Keypad : Interactable
         else
         {
             soundEffectsManager.Play("WrongCode");
+            hint.Trigger();
         }
     }
 }

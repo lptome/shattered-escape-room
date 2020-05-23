@@ -34,7 +34,7 @@ public class PlayerLook : MonoBehaviour
 			float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
 			xRotation -= mouseY;
-			xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+			xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
 			transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
@@ -70,6 +70,7 @@ public class PlayerLook : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 			{
+				hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);
 				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 				
 			}

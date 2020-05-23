@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
 
 	private float speed;
 	public float walkSpeed = 10f;
-	public float sprintSpeed = 14f;
+	public float sprintSpeed = 16f;
 	public float gravity = -9.81f;
 
 	Vector3 velocity;

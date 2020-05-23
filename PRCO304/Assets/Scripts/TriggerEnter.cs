@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerEnter : MonoBehaviour
 {
     public GameObject trigger;
+    public bool singleTrigger;
     private SoundEffectsManager manager;
     private string triggerClip;
 
@@ -23,6 +24,9 @@ public class TriggerEnter : MonoBehaviour
 
     private void OnTriggerExit(Collider player)
     {
-        Destroy(trigger);
+        if (singleTrigger == true)
+        {
+            Destroy(trigger);
+        }
     }
 }

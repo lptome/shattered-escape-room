@@ -84,7 +84,6 @@ public class MessageManager : MonoBehaviour
         messagePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         menu.WritingComplete();
-
         tempColor.a = 0f;
         alphaPanel.color = tempColor;
         

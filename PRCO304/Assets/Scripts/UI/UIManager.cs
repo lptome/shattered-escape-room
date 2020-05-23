@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,8 +8,14 @@ public class UIManager : MonoBehaviour
     public GameObject tooltipPanel;
     public GameObject entryPanel;
     public GameObject inputField;
+    public GameObject hintPanel;
+    public Animator hintAnimator;
     private SoundEffectsManager audioManager;
     private ItemTooltip tooltip;
+    private float timer;
+    private bool hintOn = false;
+    public Hint inventoryHint;
+    public Hint journalHint;
 
     public Journal journal;
     public EntryView entryView;
@@ -29,10 +36,17 @@ public class UIManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0 && hintOn == true)
+        {
+            hintAnimator.SetBool("isOpen", false);
+            hintOn = false;
+        }
+
         if (inventoryEnabled == false)
         {
             tooltipPanel.SetActive(false);
@@ -63,6 +77,7 @@ public class UIManager : MonoBehaviour
             {
                 journalPanel.SetActive(false);
                 journalEnabled = !journalEnabled;
+                journalHint.Trigger();
             }
             HideMouse();
         }
@@ -72,6 +87,8 @@ public class UIManager : MonoBehaviour
 
     public void ToggleInventory()
     {
+        inventoryHint.Trigger();
+
         if (journalEnabled == true)
         {
             journalEnabled = false;
@@ -159,6 +176,12 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-   
+    public void DisplayHint(string hint)
+    {
+        timer = 3f;
+        hintOn = true;
+        hintAnimator.SetBool("isOpen", true);
+        hintPanel.GetComponentInChildren<Text>().text = hint;
+    }
     
 }
