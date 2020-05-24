@@ -38,7 +38,7 @@ public class Keypad : Interactable
     }
     public override void Interact()
     {
-       // base.Interact();
+        base.Interact();
         EnterCode();
     }
 

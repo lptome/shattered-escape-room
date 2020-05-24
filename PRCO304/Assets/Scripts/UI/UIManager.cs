@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject entryPanel;
     public GameObject inputField;
     public GameObject hintPanel;
+    public GameObject pauseMenu;
     public Animator hintAnimator;
     private SoundEffectsManager audioManager;
     private ItemTooltip tooltip;
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
     private bool hintOn = false;
     public Hint inventoryHint;
     public Hint journalHint;
+   
 
     public Journal journal;
     public EntryView entryView;
@@ -64,28 +66,48 @@ public class UIManager : MonoBehaviour
         {
             ToggleInventory();    
         }
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TogglePauseMenu();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (inventoryEnabled == true)
             {
                 inventoryPanel.SetActive(false);
                 inventoryEnabled = !inventoryEnabled;
-            }
-            
-            if (journalEnabled == true)
+            }          
+            else if (journalEnabled == true)
             {
                 journalPanel.SetActive(false);
                 journalEnabled = !journalEnabled;
                 journalHint.Trigger();
+            }
+            else
+            {
+                TogglePauseMenu();
             }
             HideMouse();
         }
 
         
     }
+    
+    void TogglePauseMenu()
+    {
+        if (pauseMenu.activeSelf == true)
+        {
+            pauseMenu.SetActive(false);
+            HideMouse();
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+            ShowMouse();
+        }
+    }
 
-    public void ToggleInventory()
+    void ToggleInventory()
     {
         inventoryHint.Trigger();
 
@@ -109,7 +131,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleJournal()
+    void ToggleJournal()
     {
         if (inventoryEnabled == true)
         {
