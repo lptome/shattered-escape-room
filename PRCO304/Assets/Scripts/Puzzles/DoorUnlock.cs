@@ -11,8 +11,8 @@ public class DoorUnlock : Interactable
     private bool open = false;
 
 
+    
 
-   
     public override void Interact()
     { 
 
@@ -32,7 +32,8 @@ public class DoorUnlock : Interactable
         }
         else
         {
-            
+            FindObjectOfType<SoundEffectsManager>().Play("LockedDoor");
+            FindObjectOfType<UIManager>().DisplayHint("Locked.", 0.5f);
         }
     }
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79dc99d1dd28f489ba7f33ca0f528f, type: 3}
   m_Name: Hint1
   m_EditorClassIdentifier: 
-  entryName: The sequence
-  description: Explore exotic lands and learn of the weight I carry, then you too
-    will understand why this tale ends in tragedy.
+  entryName: Poem
+  description: "Naturally, foreign lands \nAre a balance of culture and beauty, but\nThe\nOnly
+    bring tragedy"

@@ -31,7 +31,6 @@ public class Journal : MonoBehaviour
     {
         if (entries.Count >= space)
         {
-            Debug.Log("Not enough room.");
             return false;
         }
        

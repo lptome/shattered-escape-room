@@ -77,6 +77,7 @@ public class PuzzleObject : Interactable
         else if (selectedPanel.isActiveAndEnabled && wrongItemMessage != null)
         {
             messageManager.StartMessage(wrongItemMessage);
+            selectedPanel.HidePanel();
         }
 
         else if (defaultMessage != null)

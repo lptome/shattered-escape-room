@@ -10,6 +10,9 @@ public class LeverPuzzle : Interactable
     public Lever lever4;
     public Lever lever5;
     public Lever lever6;
+    public DoorUnlock door;
+    public SoundEffectsManager sound;
+
     public override void Interact()
     {
         base.Interact();
@@ -41,7 +44,8 @@ public class LeverPuzzle : Interactable
     void OpenStairs()
     {
 
-        Debug.Log("Combination is correct.");
+        door.Unlock();
+        sound.Play("CorrectCode");
 
     }
 }

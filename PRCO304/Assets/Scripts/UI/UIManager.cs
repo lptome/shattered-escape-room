@@ -198,9 +198,9 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void DisplayHint(string hint)
+    public void DisplayHint(string hint, float duration)
     {
-        timer = 3f;
+        timer = duration;
         hintOn = true;
         hintAnimator.SetBool("isOpen", true);
         hintPanel.GetComponentInChildren<Text>().text = hint;

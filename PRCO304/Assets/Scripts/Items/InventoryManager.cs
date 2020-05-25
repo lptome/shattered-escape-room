@@ -104,16 +104,21 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (items[i].itemName == dropItemSlot.Item.finalItem)
                     {
-                        if (draggedSlot.Item.singleUse && dropItemSlot.Item.singleUse == false)
+                        if (draggedSlot.Item.singleUse == true && dropItemSlot.Item.singleUse == false)
                         {
                             draggedSlot.Item = dropItemSlot.Item;
                             dropItemSlot.Item = items[i];
                         }
-                        else if (dropItemSlot.Item.singleUse && draggedSlot.Item.singleUse == false)
+                        else if (dropItemSlot.Item.singleUse == true && draggedSlot.Item.singleUse == false)
                         {
                             
                             dropItemSlot.Item = items[i];
                             
+                        }
+                        else if (dropItemSlot.Item.singleUse == true && draggedSlot.Item.singleUse == true)
+                        {
+                            dropItemSlot.Item = items[i];
+                            draggedSlot.Item = null;
                         }
                         else
                         {

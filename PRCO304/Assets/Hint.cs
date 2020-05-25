@@ -6,6 +6,7 @@ public class Hint : Interactable
 {
     public UIManager manager;
     public string hint;
+    public float duration;
     private bool triggered = false;
 
 
@@ -19,7 +20,7 @@ public class Hint : Interactable
     {
         if (triggered == false)
         {
-            manager.DisplayHint(hint);
+            manager.DisplayHint(hint, duration);
             triggered = true;
         }
      
