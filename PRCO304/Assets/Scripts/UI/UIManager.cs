@@ -184,6 +184,10 @@ public class UIManager : MonoBehaviour
         entryAdded = true;
     }
 
+    public void ItemAdded()
+    {
+
+    }
 
     public void ShowMouse()
     {

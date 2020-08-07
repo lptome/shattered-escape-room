@@ -6,15 +6,13 @@ using UnityEngine.UI;
 public class MessageManager : MonoBehaviour
 {
     private Queue<string> sentences;
-    public Text messageBox;
-    public Image alphaPanel;
+    public TMPro.TMP_Text messageBox;
     public GameObject messagePanel;
     public Text hoverText;
     public GameObject hoverPanel;
     public UIManager menu;
     public SoundEffectsManager soundFXManager;
     private bool allDone = false;
-    private Color tempColor;
   
 
 
@@ -27,51 +25,34 @@ public class MessageManager : MonoBehaviour
                 DisplayNextMessage();
             }
         }
-
-        
-
     }
     private void Start()
     {
         sentences = new Queue<string>();
-        
-
-
     }
 
     public void StartMessage(Message message)
     {
-        
-        tempColor = alphaPanel.color;
-        tempColor.a = 0.3f;
-        alphaPanel.color = tempColor;
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         sentences.Clear();
-        
 
         foreach(string sentence in message.sentences)
         {
             sentences.Enqueue(sentence);
         }
-
-        
         DisplayNextMessage();
-        
     }
 
     public void DisplayNextMessage()
     {
         allDone = false;
-        
         messagePanel.SetActive(true);
         if (sentences.Count == 0)
         {
             EndMessage();
             return;
         }
-
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StopHovering();
@@ -84,8 +65,6 @@ public class MessageManager : MonoBehaviour
         messagePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         menu.WritingComplete();
-        tempColor.a = 0f;
-        alphaPanel.color = tempColor;
         
 
     }
@@ -96,9 +75,8 @@ public class MessageManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {   
             soundFXManager.Play("TextWriter");
-            messageBox.text += letter;           
+            messageBox.text += letter;
             yield return null;
-        
         }
         allDone = true;
     }

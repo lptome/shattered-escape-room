@@ -9,9 +9,12 @@ public class SettingsMenu : MonoBehaviour
 {
     public TMPro.TMP_Dropdown resolutionDropdown;
     public TMPro.TMP_Dropdown qualityDropdown;
+    public TMPro.TMP_Text FOVText;
     public AudioMixer audioMixer;
+    public Camera mainCamera;
     public Animator transition;
     public Slider volumeSlider;
+    public Slider FOVSlider;
     public float transitionTime = 1f;
 
     //These are keys that serve as identifiers when saving Player Preferences.
@@ -20,7 +23,10 @@ public class SettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
-
+    private void Update()
+    {
+        FOVText.text = ((int)mainCamera.fieldOfView).ToString();
+    }
     private void Awake()
     {
 
@@ -43,6 +49,9 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("Volume", PlayerPrefs.GetFloat("savedVolume"));
 
         qualityDropdown.value = PlayerPrefs.GetInt(qualityOptions, 3);
+
+        FOVSlider.value = PlayerPrefs.GetFloat("savedFOV", 85f);
+        mainCamera.fieldOfView = PlayerPrefs.GetFloat("savedFOV");
 
         resolutions = Screen.resolutions;
 
@@ -85,7 +94,11 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("Volume", PlayerPrefs.GetFloat("savedVolume")); 
     }
 
-
+    public void SetFOV(float fov)
+    {
+        PlayerPrefs.SetFloat("savedFOV", fov);
+        mainCamera.fieldOfView = fov;
+    }
     public void PlayGame()
     {
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));

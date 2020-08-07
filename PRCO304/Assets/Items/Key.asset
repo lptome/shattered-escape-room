@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030eb25e5d4d33c4bac3279c1e5bf42e, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
-  itemName: Key
+  itemName: Rusty Key
   itemDescription: A key, but what does it open?
   Icon: {fileID: 21300000, guid: 69fe3b3f99b5c274c964c03aac6fc9f0, type: 3}
   singleUse: 1
+  finalItem: 

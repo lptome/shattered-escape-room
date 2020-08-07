@@ -33,15 +33,15 @@ public class LeverPuzzle : Interactable
 
         if ((pos1 == false) && (pos2 == true) && (pos3 == false) && (pos4 == false) && (pos5 == false) && (pos6 == true))
         {
-            OpenStairs();
+            OpenBedroom();
         }
         else
         {
-            Debug.Log("Combination incorrect.");
+            sound.Play("WrongCode");
         }
     }
 
-    void OpenStairs()
+    void OpenBedroom()
     {
 
         door.Unlock();

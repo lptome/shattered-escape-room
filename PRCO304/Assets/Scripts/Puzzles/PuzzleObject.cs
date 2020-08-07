@@ -12,8 +12,8 @@ public class PuzzleObject : Interactable
     //The itemGiven variable serves to add an item to the player's inventory if the puzzle's solution results in a new item being recovered.
     [SerializeField] Item itemGiven;
 
-    [SerializeField] Inventory inventory;
-    [SerializeField] SelectedPanel selectedPanel;
+    private InventoryUI inventoryUI;
+    private GameObject selectedItem;
     private MessageManager messageManager;
     private SoundEffectsManager soundEffectsManager;
 
@@ -27,9 +27,6 @@ public class PuzzleObject : Interactable
 
 
 
-   
-    //Determines whether object is destroyed once the correct item is used on it.
-    public bool destructable;
 
 
 
@@ -38,6 +35,8 @@ public class PuzzleObject : Interactable
     {
         messageManager = FindObjectOfType<MessageManager>();
         soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
+        inventoryUI = FindObjectOfType<InventoryUI>();
+        selectedItem = GameObject.Find("/UI/Canvas/Panel/Selected Panel");
     }
 
     public override void Interact()
@@ -48,36 +47,35 @@ public class PuzzleObject : Interactable
 
     void ClickObject()
     {
-        if (selectedPanel.isActiveAndEnabled && selectedPanel.CheckItem(itemNeeded.itemName))
+   
+        if (selectedItem.activeSelf)
         {
-            if (itemNeeded.singleUse == true)
+            if (inventoryUI.currentItem == itemNeeded)
             {
-                inventory.RemoveItem(itemNeeded);
-                selectedPanel.HidePanel();
-            }
+                if (itemNeeded.singleUse == true)
+                {
+                    Inventory.instance.Remove(inventoryUI.currentItem);
+                    selectedItem.SetActive(false);
+                }
 
-            if (destructable == true)
-            {
                 initialObject.SetActive(false);
+
+                if (itemGiven != null)
+                {
+                    Inventory.instance.Add(itemGiven);
+
+                }
+
+                finalObject.SetActive(true);
+                selectedItem.SetActive(false);
+                inventoryUI.currentItem = null;
+                soundEffectsManager.Play("ObjectInteract");
             }
-
-            
-
-            if (itemGiven != null)
+            else if ( wrongItemMessage != null)
             {
-                inventory.AddItem(itemGiven);
-                
+                messageManager.StartMessage(wrongItemMessage);
+                selectedItem.SetActive(false);
             }
-
-            finalObject.SetActive(true);
-            selectedPanel.HidePanel();
-            soundEffectsManager.Play("ObjectInteract");
-        }
-
-        else if (selectedPanel.isActiveAndEnabled && wrongItemMessage != null)
-        {
-            messageManager.StartMessage(wrongItemMessage);
-            selectedPanel.HidePanel();
         }
 
         else if (defaultMessage != null)

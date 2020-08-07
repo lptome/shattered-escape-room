@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class MessageFeedback : MonoBehaviour
 {
-    [SerializeField] private TextWriter textWriter;
+    private TextWriter textWriter;
     public UIManager menu;
     public GameObject feedbackPanel;
-    public Text messageBox;
+    public TMPro.TMP_Text messageBox;
     private float textDuration;
 
 

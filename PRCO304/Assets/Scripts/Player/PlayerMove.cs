@@ -10,14 +10,6 @@ public class PlayerMove : MonoBehaviour
 	private Transform tr;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
-	public GameObject inventory;
-	public GameObject journal;
-	public SoundEffectsManager soundFXManager;
-	public MusicManager musicManager;
-	public AudioClip mainTheme;
-	
-	
-	
 
 	private float speed;
 	public float walkSpeed = 10f;
@@ -30,7 +22,6 @@ public class PlayerMove : MonoBehaviour
 	void Start()
 	{
 		tr = controller.transform;
-		musicManager.ChangeTrack(mainTheme);
 		
 	}
 	// Update is called once per frame

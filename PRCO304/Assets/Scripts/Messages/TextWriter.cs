@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class TextWriter : MonoBehaviour
 {
     public SoundEffectsManager audioManager;
-    private Text messageBox;
+    private TMPro.TMP_Text messageBox;
     private string textToWrite;
     private int charIndex;
     private float timePerCharacter;
     private float timer;
 
-    public float AddWriter(Text messageBox, string textToWrite, float timePerCharacter)
+    public float AddWriter(TMPro.TMP_Text messageBox, string textToWrite, float timePerCharacter)
     {
         this.messageBox = messageBox;
         this.textToWrite = textToWrite;

@@ -54,11 +54,11 @@ public class Keypad : Interactable
     {
         userInput = inputField.text;
         if (userInput == code)
-        {
-            door.Unlock();
+        { 
             inputFieldObject.SetActive(false);
             UI.HideMouse();
             soundEffectsManager.Play("CorrectCode");
+            door.Unlock();
             Destroy(this);
             
         }
