@@ -27,7 +27,6 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(speed);
 		//Disable movement if UI is open.
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;

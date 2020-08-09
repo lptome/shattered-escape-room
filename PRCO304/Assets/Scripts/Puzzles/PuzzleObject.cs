@@ -55,6 +55,7 @@ public class PuzzleObject : Interactive
                 if (itemNeeded.singleUse == true)
                 {
                     Inventory.instance.Remove(inventoryUI.currentItem);
+                    inventoryUI.UpdateUI();
                     selectedItem.SetActive(false);
                 }
 

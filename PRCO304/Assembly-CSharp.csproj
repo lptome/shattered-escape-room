@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\InventorySystem\ItemSlot1.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Open.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Radio.cs" />
+    <Compile Include="Assets\Scripts\InventorySystem\SlotDrop.cs" />
     <Compile Include="Assets\Scripts\Journal\EntryPickup.cs" />
     <Compile Include="Assets\Scripts\Journal\EntryView.cs" />
     <Compile Include="Assets\Scripts\Journal\Interactive.cs" />

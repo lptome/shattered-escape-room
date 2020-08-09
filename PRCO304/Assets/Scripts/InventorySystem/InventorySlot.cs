@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
     public Item item;
@@ -29,6 +29,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         button.interactable = false;
     }
 
+    public Item GetItem()
+    {
+        return item;
+    }
+
     public void OnItemClick()
     {
         inventoryUI.SelectItem(item);
@@ -36,7 +41,6 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Showing Tooltip.");
         tooltip.ShowTooltip(item);
     }
 
@@ -47,8 +51,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.SetAsLastSibling();
-        transform.position = Input.mousePosition;
+        transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -56,8 +59,6 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         transform.localPosition = Vector3.zero;
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        
-    }
+    
+    
 }

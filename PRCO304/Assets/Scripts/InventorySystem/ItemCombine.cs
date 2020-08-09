@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemCombine : MonoBehaviour
 {
-
     void Combine(InventorySlot slot, Item item1, Item item2)
     {
         List<Item> itemList = Inventory.instance.items;
