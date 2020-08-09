@@ -16,7 +16,7 @@ public class PlayerLook : MonoBehaviour
 	public MessageManager messageManager;
 
 	float xRotation = 0f;
-	// Use this for initialization
+
 	void Start()
 	{
 
@@ -24,7 +24,6 @@ public class PlayerLook : MonoBehaviour
 		
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
@@ -66,22 +65,16 @@ public class PlayerLook : MonoBehaviour
 
 	void PickUp()
 	{
-		
 			RaycastHit hit;
 			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 			{
 				hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);
-				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
-				
-			}
-
-		
-		
+				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);			
+			}	
 	}
 
 	void Hover()
-	{
-		
+	{		
 		RaycastHit hit;
 		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
 		{
@@ -90,9 +83,6 @@ public class PlayerLook : MonoBehaviour
 		else
 		{
 			messageManager.StopHovering();
-		}
-
-		
-	}
-	
+		}		
+	}	
 }

@@ -28,12 +28,8 @@ public class Inventory : MonoBehaviour
     public int slots = 12;
 
     public List<Item> items = new List<Item>();
+    public List<Item> comboItems = new List<Item>();
 
-    [SerializeField] InventorySlot[] inventorySlots;
-  
-   
-
- 
     public bool Add(Item item)
     {
         if (items.Count >= slots)
@@ -53,6 +49,20 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
+    }
+
+    public Item Combine(Item item1, Item item2)
+    {
+        List<Item> comboItems = Inventory.instance.comboItems;
+
+        for (int i = 0; i < comboItems.Count; i++)
+        {
+            if (item1.finalItem.Equals(comboItems[i].itemName))
+            {
+                return comboItems[i];
+            }
+        }
+        return null;
     }
 
 }
