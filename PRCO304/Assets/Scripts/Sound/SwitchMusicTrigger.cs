@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchMusicTrigger : Interactable
+public class SwitchMusicTrigger : Interactive
 {
 
     public AudioClip newTrack;

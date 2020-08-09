@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageTrigger : Interactable
+public class MessageTrigger : Interactive
 {
     public Message message;
     public bool singleUse;

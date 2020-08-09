@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PuzzleObject : Interactable
+public class PuzzleObject : Interactive
 {
     //The correct item needed to interact with the object.
     [SerializeField] Item itemNeeded;

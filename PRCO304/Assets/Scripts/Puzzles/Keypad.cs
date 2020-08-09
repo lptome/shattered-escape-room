@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Keypad : Interactable
+public class Keypad : Interactive
 {
     public GameObject inputFieldObject;
     public InputField inputField;

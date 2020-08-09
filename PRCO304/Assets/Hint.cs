@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Hint : Interactable
+public class Hint : Interactive
 {
     public UIManager manager;
     public string hint;

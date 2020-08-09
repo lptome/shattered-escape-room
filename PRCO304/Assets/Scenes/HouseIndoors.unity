@@ -4650,7 +4650,7 @@ BoxCollider:
   m_GameObject: {fileID: 214569497}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.9375558, y: 0.9114547, z: 2.5719576}
   m_Center: {x: 0, y: 0.45524842, z: 0}
@@ -15378,9 +15378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671fdbfb402032d48a15893b3c018397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: 12
-  items: []
-  inventorySlots: []
 --- !u!1001 &770918313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40090,7 +40087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690807307}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8.13, y: 2.641, z: -23.46}
+  m_LocalPosition: {x: 39.79, y: 8.61, z: -48.95}
   m_LocalScale: {x: 1, y: 1.3, z: 1}
   m_Children:
   - {fileID: 1635688051}
@@ -53952,18 +53949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a8bc36e8fad9e4bbd4173d738567da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2039039586}
-  normalColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  disabledColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 0
-  _item: {fileID: 0}
 --- !u!114 &2039039586
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Open : Interactable
+public class Open : Interactive
 {
     public Animator anim;
     private bool open = false;

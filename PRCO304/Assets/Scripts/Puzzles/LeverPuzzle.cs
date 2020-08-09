@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverPuzzle : Interactable
+public class LeverPuzzle : Interactive
 {
     public Lever lever1;
     public Lever lever2;

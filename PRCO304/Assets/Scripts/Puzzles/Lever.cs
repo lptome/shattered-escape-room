@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lever : Interactable
+public class Lever : Interactive
 {
     public Animator anim;
     public SoundEffectsManager audioManager;

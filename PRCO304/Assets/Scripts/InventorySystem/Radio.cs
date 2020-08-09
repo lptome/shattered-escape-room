@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radio : Interactable
+public class Radio : Interactive
 {
     public AudioSource source;
     private MessageManager messageManager;

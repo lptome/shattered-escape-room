@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorUnlock : Interactable
+public class DoorUnlock : Interactive
 {
 
     public Animator anim;

@@ -87,7 +87,7 @@
     <Compile Include="Assets\Scripts\InventorySystem\Radio.cs" />
     <Compile Include="Assets\Scripts\Journal\EntryPickup.cs" />
     <Compile Include="Assets\Scripts\Journal\EntryView.cs" />
-    <Compile Include="Assets\Scripts\Journal\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Journal\Interactive.cs" />
     <Compile Include="Assets\Scripts\Journal\Journal.cs" />
     <Compile Include="Assets\Scripts\Journal\JournalEntry.cs" />
     <Compile Include="Assets\Scripts\Journal\JournalSlot.cs" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntryPickup : Interactable
+public class EntryPickup : Interactive
 {
     
     public JournalEntry journalEntry;

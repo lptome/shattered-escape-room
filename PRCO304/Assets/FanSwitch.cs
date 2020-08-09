@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FanSwitch : Interactable
+public class FanSwitch : Interactive
 {
     public FanRotation fanScript;
     public GameObject cord;

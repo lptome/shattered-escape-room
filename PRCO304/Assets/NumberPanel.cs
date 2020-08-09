@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NumberPanel : Interactable
+public class NumberPanel : Interactive
 {
     public GameObject inputPanel;
     public Text input1, input2, input3;

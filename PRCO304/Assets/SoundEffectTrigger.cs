@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEffectTrigger : Interactable
+public class SoundEffectTrigger : Interactive
 {
     public string soundEffect;
     public override void Interact()
