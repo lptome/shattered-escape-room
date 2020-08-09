@@ -37,7 +37,6 @@ public class ItemPickup : MonoBehaviour
     void Hover()
     {
         UIManager.DisplayHint("Press E to pick up item.", 0.5f);
-        
     }
 
     
