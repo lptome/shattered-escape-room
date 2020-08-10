@@ -6,7 +6,7 @@ public class JournalSlot : MonoBehaviour
 {
     public Text title;
     JournalEntry journalEntry;
-    Button button;
+    [SerializeField] Button button;
     public Image image;
     public EntryView entryView;
     public UIManager menu;

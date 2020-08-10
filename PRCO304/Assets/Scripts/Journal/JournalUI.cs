@@ -13,6 +13,7 @@ public class JournalUI : MonoBehaviour
         journal.onEntryAddedCallback += UpdateUI;
 
         slots = entriesParent.GetComponentsInChildren<JournalSlot>();
+        UpdateUI();
 
     }
 

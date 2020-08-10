@@ -58,8 +58,10 @@ public class InventoryUI : MonoBehaviour
                     dropSlot.RemoveItem();
                     dropSlot.AddItem(itemList[i]);
                     itemList.Clear();
+                    Inventory.instance.Remove(item1);
+                    Inventory.instance.Remove(item2);
                 }
-            }
+            }     
         }
         itemList.Clear();
     }
