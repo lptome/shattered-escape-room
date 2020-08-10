@@ -31,6 +31,7 @@ public class PlayerMove : MonoBehaviour
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
 
+
 		float vScale = 1.3f;
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
@@ -74,14 +75,14 @@ public class PlayerMove : MonoBehaviour
 
 		velocity.y += gravity * Time.deltaTime;
 
+		controller.Move(velocity * Time.deltaTime);
+
 		Vector3 tempScale = tr.localScale;
 		Vector3 tempPosition = tr.position;
 
 		tempScale.y = Mathf.Lerp(tr.localScale.y, vScale, 5 * Time.deltaTime);
 		tr.localScale = tempScale;
 		tr.position = tempPosition;
-
-		controller.Move(velocity * Time.deltaTime);
 	}
 	void Crouch(float vScale, float x, float z)
     {

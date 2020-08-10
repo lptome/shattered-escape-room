@@ -11,8 +11,6 @@ public class PlayerLook : MonoBehaviour
 
 	public Transform playerBody;
 	public Camera playerCamera;
-	public GameObject inventory;
-	public GameObject journal;
 	public MessageManager messageManager;
 
 	float xRotation = 0f;
@@ -80,9 +78,5 @@ public class PlayerLook : MonoBehaviour
 		{
 			hit.transform.gameObject.SendMessage("Hover", SendMessageOptions.DontRequireReceiver);
 		}
-		else
-		{
-			messageManager.StopHovering();
-		}		
 	}	
 }

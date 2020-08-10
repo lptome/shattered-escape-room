@@ -9,8 +9,8 @@ public class DoorUnlock : Interactive
     public Animator anim;
     private bool locked = true;
     private bool open = false;
-    //public SelectedPanel panel;
-    public GameObject selectedPanel;
+    public InventoryUI inventoryUI;
+    public UIManager uiManager;
     private SoundEffectsManager FXManager;
     public Item key;
 
@@ -44,14 +44,14 @@ public class DoorUnlock : Interactive
         {
             if (key != null)
             {
-                //if (selectedPanel.activeSelf == true && panel.CheckItem(key.itemName))
-                //{
-                //    Unlock();
-                //}
-                //else
-                //{
-                //    Locked();
-                //}
+                if (inventoryUI.currentItem == key)
+                {
+                    Unlock();
+                }
+                else
+                {
+                    Locked();
+                }
             }
             else
             {
@@ -66,14 +66,12 @@ public class DoorUnlock : Interactive
     public void Unlock()
     {
         locked = false;
-        FXManager.Play("UnlockDoor");
-        selectedPanel.SetActive(false);     
+        FXManager.Play("UnlockDoor");   
     }
 
     void Locked()
     {
         FXManager.Play("LockedDoor");
-        Debug.Log("Hint");
-        FindObjectOfType<UIManager>().DisplayHint("Locked.", 0.5f);
+        uiManager.DisplayHint("Locked.", 1f);
     }
 }

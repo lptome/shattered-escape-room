@@ -35,12 +35,10 @@ public class UIManager : MonoBehaviour
         inventoryPanel.SetActive(false);
         audioManager = FindObjectOfType<SoundEffectsManager>();
         tooltip = FindObjectOfType<ItemTooltip>();
-        
     }
 
     void Update()
     {
-
         timer -= Time.deltaTime;
 
         if (timer <= 0 && hintOn == true)
@@ -48,6 +46,7 @@ public class UIManager : MonoBehaviour
             hintAnimator.SetBool("isOpen", false);
             hintOn = false;
         }
+
 
         if (inventoryEnabled == false)
         {
@@ -191,7 +190,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowMouse()
     {
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -204,10 +202,12 @@ public class UIManager : MonoBehaviour
 
     public void DisplayHint(string hint, float duration)
     {
+        hintPanel.GetComponentInChildren<Text>().text = hint;
         timer = duration;
         hintOn = true;
+        hintPanel.SetActive(true);
         hintAnimator.SetBool("isOpen", true);
-        hintPanel.GetComponentInChildren<Text>().text = hint;
+        
     }
     
 }

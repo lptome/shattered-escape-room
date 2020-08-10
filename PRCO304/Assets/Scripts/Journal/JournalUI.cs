@@ -21,15 +21,12 @@ public class JournalUI : MonoBehaviour
 
     void UpdateUI()
     {
-
         for (int i = 0; i < slots.Length; i++)
         {
             if (i < journal.entries.Count)
             {
                 slots[i].AddEntry(journal.entries[i]);
             }
-            
         }
-        Debug.Log("Updating Journal");
     }
 }

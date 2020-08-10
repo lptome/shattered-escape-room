@@ -55,7 +55,6 @@ public class MessageManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StopHovering();
         StartCoroutine(TypeMessage(sentence));
     }
 
@@ -88,9 +87,5 @@ public class MessageManager : MonoBehaviour
         hoverText.text = message;
     }
 
-    public void StopHovering()
-    {
-        hoverText.text = "";
-        hoverPanel.SetActive(false);
-    }
+    
 }
