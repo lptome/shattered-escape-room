@@ -20,6 +20,7 @@ public class FanSwitch : Interactive
             FindObjectOfType<SoundEffectsManager>().Play("ButtonPress");
             FindObjectOfType<SoundEffectsManager>().Play("CorrectCode");
             fanScript.TurnOn();
+            Destroy(this);
         }
         else
         {
