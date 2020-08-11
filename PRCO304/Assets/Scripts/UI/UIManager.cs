@@ -11,8 +11,6 @@ public class UIManager : MonoBehaviour
     public GameObject hintPanel;
     public GameObject pauseMenu;
     public Animator hintAnimator;
-    private SoundEffectsManager audioManager;
-    private ItemTooltip tooltip;
     private float timer;
     private bool hintOn = false;
     public Hint inventoryHint;
@@ -33,8 +31,6 @@ public class UIManager : MonoBehaviour
     {
         journalPanel.SetActive(false);
         inventoryPanel.SetActive(false);
-        audioManager = FindObjectOfType<SoundEffectsManager>();
-        tooltip = FindObjectOfType<ItemTooltip>();
     }
 
     void Update()

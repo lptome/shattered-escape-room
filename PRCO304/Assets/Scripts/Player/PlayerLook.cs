@@ -6,7 +6,7 @@ public class PlayerLook : MonoBehaviour
 
 
 	public float mouseSensitivity = 100f;
-	public float range = 4f;
+	public float range = 6f;
 	public LayerMask itemLayer;
 
 	public Transform playerBody;
@@ -26,12 +26,13 @@ public class PlayerLook : MonoBehaviour
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
-		
+			
+			//Get Mouse Input.
 			float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 			float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
 			xRotation -= mouseY;
-			xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+			xRotation = Mathf.Clamp(xRotation, -60f, 60f); //Limit vertical rotation so player can't rotate vertically.
 
 			transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
@@ -45,9 +46,7 @@ public class PlayerLook : MonoBehaviour
 			{
 				PickUp();
 			}
-
-		Hover();
-		
+		Hover();	
 	}
 
 	void Click()
@@ -63,12 +62,11 @@ public class PlayerLook : MonoBehaviour
 
 	void PickUp()
 	{
-			RaycastHit hit;
-			if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
-			{
-				hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);
-				hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);			
-			}	
+		RaycastHit hit;
+		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range, itemLayer))
+		{
+			hit.transform.gameObject.SendMessage("PickUp", SendMessageOptions.DontRequireReceiver);		
+		}	
 	}
 
 	void Hover()

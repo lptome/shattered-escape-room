@@ -6,6 +6,7 @@ public class FanSwitch : Interactive
 {
     public FanRotation fanScript;
     public GameObject cord;
+    public MessageTrigger trigger;
 
     public override void Interact()
     {
@@ -20,6 +21,7 @@ public class FanSwitch : Interactive
             FindObjectOfType<SoundEffectsManager>().Play("ButtonPress");
             FindObjectOfType<SoundEffectsManager>().Play("CorrectCode");
             fanScript.TurnOn();
+            Destroy(trigger);
             Destroy(this);
         }
         else
