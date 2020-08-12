@@ -7,7 +7,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject itemModel;
     [SerializeField] Item item;
     private SoundEffectsManager soundFXManager;
-    private UIManager UIManager;
+    private HintManager hintManager;
     [SerializeField] private Inventory inventory;
 
 
@@ -17,7 +17,7 @@ public class ItemPickup : MonoBehaviour
     {
         inventory = FindObjectOfType<Inventory>();
         soundFXManager = FindObjectOfType<SoundEffectsManager>();
-        UIManager = FindObjectOfType<UIManager>(); 
+        hintManager = FindObjectOfType<HintManager>(); 
     }
    
     void PickUp()
@@ -30,14 +30,14 @@ public class ItemPickup : MonoBehaviour
         }
         else
         {
-            UIManager.DisplayHint("You're carrying too much.", 1f);
+            hintManager.DisplayHint("You're carrying too much.", 1f);
         }
         
     }
 
     void Hover()
     {
-        UIManager.DisplayHint("Press E to pick up item.", 0.5f);
+        hintManager.DisplayHint("Press E to pick up item.", 0.5f);
     }
 
     

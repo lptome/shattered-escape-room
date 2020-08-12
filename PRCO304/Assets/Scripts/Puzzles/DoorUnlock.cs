@@ -9,14 +9,16 @@ public class DoorUnlock : Interactive
     public Animator anim;
     private bool locked = true;
     private bool open = false;
-    public InventoryUI inventoryUI;
-    public UIManager uiManager;
+    private InventoryUI inventoryUI;
+    private HintManager hintManager;
     private SoundEffectsManager FXManager;
     public Item key;
 
 
     private void Awake()
     {
+        hintManager = FindObjectOfType<HintManager>();
+        inventoryUI = FindObjectOfType<InventoryUI>();
         FXManager = FindObjectOfType<SoundEffectsManager>();
     }
 
@@ -72,6 +74,6 @@ public class DoorUnlock : Interactive
     void Locked()
     {
         FXManager.Play("LockedDoor");
-        uiManager.DisplayHint("Locked.", 1f);
+        hintManager.DisplayHint("Locked.", 1f);
     }
 }

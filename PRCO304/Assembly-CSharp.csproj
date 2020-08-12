@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FanSwitch.cs" />
-    <Compile Include="Assets\Hint.cs" />
     <Compile Include="Assets\Imported Assets\Clock\Scripts\Clock.cs" />
     <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
     <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
@@ -111,6 +110,8 @@
     <Compile Include="Assets\Scripts\Sound\SoundEffectsManager.cs" />
     <Compile Include="Assets\Scripts\Sound\SwitchMusicTrigger.cs" />
     <Compile Include="Assets\Scripts\TriggerEnter.cs" />
+    <Compile Include="Assets\Scripts\UI\Hint.cs" />
+    <Compile Include="Assets\Scripts\UI\HintManager.cs" />
     <Compile Include="Assets\Scripts\UI\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />

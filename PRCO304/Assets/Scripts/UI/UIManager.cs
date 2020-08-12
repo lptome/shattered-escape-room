@@ -10,9 +10,6 @@ public class UIManager : MonoBehaviour
     public GameObject inputField;
     public GameObject hintPanel;
     public GameObject pauseMenu;
-    public Animator hintAnimator;
-    private float timer;
-    private bool hintOn = false;
     public Hint inventoryHint;
     public Hint journalHint;
    
@@ -35,14 +32,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0 && hintOn == true)
-        {
-            hintAnimator.SetBool("isOpen", false);
-            hintOn = false;
-        }
-
 
         if (inventoryEnabled == false)
         {
@@ -196,14 +185,6 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void DisplayHint(string hint, float duration)
-    {
-        hintPanel.GetComponentInChildren<Text>().text = hint;
-        timer = duration;
-        hintOn = true;
-        hintPanel.SetActive(true);
-        hintAnimator.SetBool("isOpen", true);
-        
-    }
+    
     
 }
