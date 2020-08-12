@@ -7,7 +7,7 @@ public class SlotDrop : MonoBehaviour, IDropHandler
 {
    
     private InventoryUI inventoryUI;
-    void Start()
+    void Awake()
     {
         inventoryUI = FindObjectOfType<InventoryUI>();
         

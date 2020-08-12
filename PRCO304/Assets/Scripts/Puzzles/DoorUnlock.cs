@@ -15,7 +15,7 @@ public class DoorUnlock : Interactive
     public Item key;
 
 
-    private void Start()
+    private void Awake()
     {
         FXManager = FindObjectOfType<SoundEffectsManager>();
     }

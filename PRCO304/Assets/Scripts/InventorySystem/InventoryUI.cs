@@ -13,8 +13,8 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        inventory = Inventory.instance;
-        inventory.onItemAddedCallback += UpdateUI;
+        inventory = FindObjectOfType<Inventory>();
+        inventory.onInventoryChangedCallback += UpdateUI;
         selectedItem = selectedPanel.GetComponentInChildren<Image>();
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
@@ -46,8 +46,8 @@ public class InventoryUI : MonoBehaviour
 
     public void Combine(InventorySlot draggedSlot, InventorySlot dropSlot, Item item1, Item item2)
     {
-        List<Item> itemList = Inventory.instance.comboItems;
-   
+        List<Item> itemList = inventory.comboItems;
+
         if (item1.finalItem.Equals(item2.finalItem))
         {
             for (int i = 0; i < itemList.Count; i++)
@@ -58,10 +58,10 @@ public class InventoryUI : MonoBehaviour
                     dropSlot.RemoveItem();
                     dropSlot.AddItem(itemList[i]);
                     itemList.Clear();
-                    Inventory.instance.Remove(item1);
-                    Inventory.instance.Remove(item2);
+                    inventory.Remove(item1);
+                    inventory.Remove(item2);
                 }
-            }     
+            }
         }
         itemList.Clear();
     }

@@ -8,21 +8,22 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] Item item;
     private SoundEffectsManager soundFXManager;
     private UIManager UIManager;
+    [SerializeField] private Inventory inventory;
 
 
     private bool pickedUp;
 
-    private void Start()
+    private void Awake()
     {
+        inventory = FindObjectOfType<Inventory>();
         soundFXManager = FindObjectOfType<SoundEffectsManager>();
-        UIManager = FindObjectOfType<UIManager>();
-        
+        UIManager = FindObjectOfType<UIManager>(); 
     }
    
     void PickUp()
     {
         soundFXManager.Play("ItemPickup");
-        pickedUp = Inventory.instance.Add(item);
+        pickedUp = inventory.Add(item);
         if (pickedUp)
         {
             Destroy(itemModel);

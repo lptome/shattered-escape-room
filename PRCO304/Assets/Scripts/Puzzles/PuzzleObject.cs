@@ -12,6 +12,7 @@ public class PuzzleObject : Interactive
     //The itemGiven variable serves to add an item to the player's inventory if the puzzle's solution results in a new item being recovered.
     [SerializeField] Item itemGiven;
 
+    public Inventory inventory;
     private InventoryUI inventoryUI;
     private GameObject selectedItem;
     private MessageManager messageManager;
@@ -31,8 +32,9 @@ public class PuzzleObject : Interactive
 
 
    
-    private void Start()
+    private void Awake()
     {
+        inventory = FindObjectOfType<Inventory>();
         messageManager = FindObjectOfType<MessageManager>();
         soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
         inventoryUI = FindObjectOfType<InventoryUI>();
@@ -54,7 +56,7 @@ public class PuzzleObject : Interactive
             {
                 if (itemNeeded.singleUse == true)
                 {
-                    Inventory.instance.Remove(inventoryUI.currentItem);
+                    inventory.Remove(inventoryUI.currentItem);
                     inventoryUI.UpdateUI();
                     selectedItem.SetActive(false);
                 }
@@ -63,7 +65,7 @@ public class PuzzleObject : Interactive
 
                 if (itemGiven != null)
                 {
-                    Inventory.instance.Add(itemGiven);
+                    inventory.Add(itemGiven);
 
                 }
 

@@ -11,9 +11,13 @@ public class JournalSlot : MonoBehaviour
     public EntryView entryView;
     public UIManager menu;
 
-    public void Start()
+    private void Awake()
     {
         button = GetComponentInChildren<Button>();
+    }
+
+    private void Start()
+    {
         button.enabled = false;
         image.enabled = false;
     }
