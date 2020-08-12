@@ -4,17 +4,18 @@ public class JournalUI : MonoBehaviour
 {
     public Transform entriesParent;
 
-    Journal journal;
+    private Journal journal;
 
     JournalSlot[] slots;
+
+    private void Awake()
+    {
+        journal = FindObjectOfType<Journal>();
+        slots = entriesParent.GetComponentsInChildren<JournalSlot>();
+    }
     void Start()
     {
-        journal = Journal.instance;
         journal.onEntryAddedCallback += UpdateUI;
-
-        slots = entriesParent.GetComponentsInChildren<JournalSlot>();
-        UpdateUI();
-
     }
 
     

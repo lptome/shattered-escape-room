@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
     Inventory inventory;
     InventorySlot[] slots;
 
-    void Start()
+    void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
         inventory.onInventoryChangedCallback += UpdateUI;

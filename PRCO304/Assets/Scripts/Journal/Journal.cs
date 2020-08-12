@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class Journal : MonoBehaviour
 {
-    #region Singleton
-    public static Journal instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of Journal found.");
-            return;
-        }
-
-        instance = this;
-    }
-
-    #endregion 
-
     public delegate void OnEntryAdded();
     public OnEntryAdded onEntryAddedCallback;
 

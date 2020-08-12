@@ -9,8 +9,8 @@ public class Inventory : MonoBehaviour
 
     public int slots = 12;
 
-    public List<Item> items = new List<Item>();
-    public List<Item> comboItems = new List<Item>();
+    public List<Item> items = new List<Item>(); //Held items
+    public List<Item> comboItems = new List<Item>(); //Combination items
 
     public bool Add(Item item)
     {
