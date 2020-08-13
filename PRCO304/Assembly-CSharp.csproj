@@ -102,6 +102,8 @@
     <Compile Include="Assets\Scripts\Puzzles\Keypad.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Lever.cs" />
     <Compile Include="Assets\Scripts\Puzzles\LeverPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\Microwave\Microwave.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\Microwave\MicrowaveMinutes.cs" />
     <Compile Include="Assets\Scripts\Puzzles\NumberCombination.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Phone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzleObject.cs" />

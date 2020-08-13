@@ -64,8 +64,6 @@ public class MessageManager : MonoBehaviour
         messagePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         menu.WritingComplete();
-        
-
     }
 
     IEnumerator TypeMessage(string sentence)
