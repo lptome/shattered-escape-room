@@ -24,16 +24,14 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < inventory.slots; i++)
         {
-            if (i < inventory.items.Count)
-            {
-                slots[i].AddItem(inventory.items[i]);
-            }
-            else
-            {
-                slots[i].RemoveItem();
-            }
+            slots[i].ClearSlot();
+        }
+
+        for (int i = 0; i < inventory.items.Count; i++)
+        {
+            slots[i].AddItem(inventory.items[i]);
         }
     }
 
@@ -54,15 +52,15 @@ public class InventoryUI : MonoBehaviour
             {
                 if (item1.finalItem.Equals(itemList[i].itemName))
                 {
-                    draggedSlot.RemoveItem();
-                    dropSlot.RemoveItem();
-                    dropSlot.AddItem(itemList[i]);
-                    itemList.Clear();
                     inventory.Remove(item1);
                     inventory.Remove(item2);
+                    inventory.Add(itemList[i]);
+                    draggedSlot.ClearSlot();
+                    dropSlot.ClearSlot();
+                    dropSlot.AddItem(itemList[i]);
+                    UpdateUI();
                 }
             }
         }
-        itemList.Clear();
     }
 }

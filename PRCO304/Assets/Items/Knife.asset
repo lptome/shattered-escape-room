@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Knife
   itemDescription: A big butcher's knife.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ddb12cba37bfd784fa714a54a8f8104e, type: 3}
   singleUse: 0
   finalItem: 

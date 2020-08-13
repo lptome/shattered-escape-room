@@ -12,16 +12,17 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public InventoryUI inventoryUI;
     public ItemTooltip tooltip;
 
+
+
     public void AddItem(Item newItem)
     {
         item = newItem;
-
         icon.sprite = item.icon;
         icon.enabled = true;
         button.interactable = true;
     }
 
-    public void RemoveItem()
+    public void ClearSlot()
     {
         item = null;
         icon.sprite = null;

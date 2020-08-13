@@ -57,7 +57,6 @@ public class PuzzleObject : Interactive
                 if (itemNeeded.singleUse == true)
                 {
                     inventory.Remove(inventoryUI.currentItem);
-                    inventoryUI.UpdateUI();
                     selectedItem.SetActive(false);
                 }
 
@@ -79,6 +78,7 @@ public class PuzzleObject : Interactive
                 messageManager.StartMessage(wrongItemMessage);
                 selectedItem.SetActive(false);
             }
+            inventoryUI.UpdateUI();
         }
 
         else if (defaultMessage != null)

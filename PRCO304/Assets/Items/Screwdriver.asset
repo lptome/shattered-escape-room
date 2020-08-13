@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Screwdriver
   itemDescription: A screwdriver, perhaps this will be useful
-  icon: {fileID: 21300000, guid: 28755ab48228db146aef5d5e101a0e13, type: 3}
+  icon: {fileID: 21300000, guid: b0acb8cd43f55154c927674fd4b1a124, type: 3}
   singleUse: 0
   finalItem: Battery

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wires
   itemDescription: Loose electrical wires, but they're missing a connector
-  Icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a1447f01f8fccd9408f0484fd75576ea, type: 3}
   singleUse: 1
   finalItem: Cord

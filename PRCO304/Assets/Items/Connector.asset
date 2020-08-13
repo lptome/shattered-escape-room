@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Connector
   m_EditorClassIdentifier: 
   itemName: Connector
-  itemDescription: An electrical connector, maybe it can be combined with something.
-  Icon: {fileID: 0}
+  itemDescription: A 4-pin connector.
+  icon: {fileID: 21300000, guid: 0ad903f6c81ad50438e5b7c9c7d0c1e9, type: 3}
   singleUse: 1
   finalItem: Cord

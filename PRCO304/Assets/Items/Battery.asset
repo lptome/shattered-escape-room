@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   itemName: Battery
-  itemDescription: This battery looks like it still works.
-  Icon: {fileID: 0}
+  itemDescription: Where could this be used?
+  icon: {fileID: 0}
   singleUse: 1
   finalItem: 
