@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: MedicalJournal1
   m_EditorClassIdentifier: 
   entryName: Medical Report - October 22nd, 2019
-  description: 'Patients do not seem to be improving, disease progresses at a rapid
-    rate and causes increased aggression. '
+  description: 'Patient Name:  Unknown
+
+    Sex: Female
+
+    Age: Estimated between
+    16-20 years old
+
+
+    Subject''s body shows various wounds scattered throughout
+    the body. Likely self-inflicted. Erratic behaviour.'

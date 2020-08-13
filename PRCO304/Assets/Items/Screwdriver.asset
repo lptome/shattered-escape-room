@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Screwdriver
   itemDescription: A screwdriver, perhaps this will be useful
   icon: {fileID: 21300000, guid: 28755ab48228db146aef5d5e101a0e13, type: 3}
-  singleUse: 1
-  finalItem: 
+  singleUse: 0
+  finalItem: Battery
