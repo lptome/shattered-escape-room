@@ -58,7 +58,6 @@ public class InventoryUI : MonoBehaviour
                     draggedSlot.ClearSlot();
                     dropSlot.ClearSlot();
                     dropSlot.AddItem(itemList[i]);
-                    UpdateUI();
                 }
             }
         }

@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: Dear Son
   m_EditorClassIdentifier: 
   entryName: My Dear Son
-  description: "Welcome home,\n\nI hope you had a good time studying abroad, we've
-    all missed you dearly. I'm sure you'll notice there have been some changes around
-    here; I do apologise. I simply cannot wait to see you again and catch up, but
-    say, shall we play a little game first? You see, I need your help with something,
-    my old brain isn't what it used to be, and I've found myself doubting my capabilities
-    lately. \n\nYou've always been so intelligent, would you be so kind as to help
-    me with my research? I just need to make sure I've come to the right conclusions.
-    \n\nOh, but it would be rude of me to ask for your help without anything in return,
-    so I've prepared some puzzles for you. You always loved those. Don't think about
-    it too much, just have a look around the house, I'll check in with you periodically.\n\n-
-    Dad"
+  description: 'Welcome home,
+
+
+    I hope you enjoyed your time at University, we''ve
+    all missed you. You''ll find that the house isn''t exactly as you remember it.
+    Would you care to play a little game and see if you can make it through to my
+    bedroom?
+
+
+    - Dad'

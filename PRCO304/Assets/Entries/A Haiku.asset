@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79dc99d1dd28f489ba7f33ca0f528f, type: 3}
   m_Name: A Haiku
   m_EditorClassIdentifier: 
-  entryName: A Haiku
-  description: 'As the end draws close
+  entryName: Computer Message
+  description: 'Well done making it this far, here''s your final hint:
+
+
+    As the
+    end draws close
 
     Seek the progenitors chambers
 
-    Where
-    the madman awaits'
+    Where the madman awaits
+
+
+    Now,
+    do you know what kind of poem this is?'

@@ -8,11 +8,12 @@ public class Keypad : Interactive
     public GameObject inputFieldObject;
     public InputField inputField;
     private UIManager UI;
+    private MessageManager messageManager;
     private SoundEffectsManager soundEffectsManager;
-    private string code = "IKRJ";
+    private string code = "KRJI";
     private string userInput;
     public DoorUnlock door;
-    public Hint hint;
+    public Message message;
 
 
     private void Update()
@@ -25,15 +26,16 @@ public class Keypad : Interactive
             inputFieldObject.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && !messageManager.messagePanel.activeSelf)
         {
             CheckCode();
         }
     }
-    private void Start()
+    private void Awake()
     {
         UI = FindObjectOfType<UIManager>();
         soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
+        messageManager = FindObjectOfType<MessageManager>();
         
     }
     public override void Interact()
@@ -64,8 +66,11 @@ public class Keypad : Interactive
         }
         else
         {
+            inputFieldObject.SetActive(false);
+            UI.HideMouse();
+            inputField.text = "____";
             soundEffectsManager.Play("WrongCode");
-            hint.Trigger();
+            messageManager.StartMessage(message);
         }
     }
 }

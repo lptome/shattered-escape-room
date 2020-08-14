@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79dc99d1dd28f489ba7f33ca0f528f, type: 3}
   m_Name: Hint1
   m_EditorClassIdentifier: 
-  entryName: Poem
-  description: "Naturally, foreign lands \nAre a balance of culture and beauty, but\nThe\nOnly
-    bring tragedy"
+  entryName: Hint
+  description: 'Need help already?
+
+    Actually, this one is pretty easy.
+
+    To
+    open the door, start from here.
+
+    Orbit the room clockwise and find the marked
+    locations.'

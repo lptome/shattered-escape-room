@@ -9,13 +9,35 @@ public class Microwave : Interactive
 {
     public GameObject microwavePanel;
     public UIManager UI;
+    public SoundEffectsManager FXManager;
     public TMP_Text text1, text2, text3, text4;
+    private bool solved = false;
+    private bool open = false;
+    public Animator animator;
+    public MessageManager messageManager;
+    public Message message;
 
 
     public override void Interact()
     {
         base.Interact();
-        OpenPanel();
+        if (!solved)
+        {
+            OpenPanel();
+        }
+        else
+        {
+            if (open == false)
+            {
+                OpenMicrowave();
+            }
+            else
+            {
+                CloseMicrowave();
+            }
+            
+        }
+        
     }
     public void CheckCode()
     {
@@ -28,7 +50,18 @@ public class Microwave : Interactive
         //Check if code is correct;
         if (digit1 == 1 && digit2 == 7 && digit3 == 3 && digit4 == 5)
         {
+            solved = true;
+            FXManager.Play("CorrectCode");
+            microwavePanel.SetActive(false);
+            UI.HideMouse();
             OpenMicrowave();
+        }
+        else
+        {
+            messageManager.StartMessage(message);
+            microwavePanel.SetActive(false);
+            UI.HideMouse();
+            FXManager.Play("WrongCode");
         }
 
     }
@@ -41,9 +74,14 @@ public class Microwave : Interactive
 
     void OpenMicrowave()
     {
-        microwavePanel.SetActive(false);
-        UI.HideMouse();
-        Debug.Log("Correct Combination");
+        open = true;
+        animator.Play("Open");
+    }
+
+    void CloseMicrowave()
+    {
+        open = false;
+        animator.Play("Close");
     }
 
 }

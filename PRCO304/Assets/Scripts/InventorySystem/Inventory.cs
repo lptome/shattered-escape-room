@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>(); //Held items
     public List<Item> comboItems = new List<Item>(); //Combination items
 
+
     public bool Add(Item item)
     {
         if (items.Count >= slots)
