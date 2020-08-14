@@ -76,4 +76,9 @@ public class DoorUnlock : Interactive
         FXManager.Play("LockedDoor");
         hintManager.DisplayHint("Locked.", 1f);
     }
+
+    public void LockDoor()
+    {
+        locked = true;
+    }
 }

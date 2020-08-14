@@ -75,6 +75,8 @@
     <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow.cs" />
     <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
     <Compile Include="Assets\NumberPanel.cs" />
+    <Compile Include="Assets\Scripts\ChangeSquareColour.cs" />
+    <Compile Include="Assets\Scripts\GridPuzzle.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\InventoryUI.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\Scripts\Puzzles\Microwave\MicrowaveMinutes.cs" />
     <Compile Include="Assets\Scripts\Puzzles\NumberCombination.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Phone.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\PlayerBedroom\DoorClose.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzleObject.cs" />
     <Compile Include="Assets\Scripts\Sound\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Sound\Sound.cs" />
