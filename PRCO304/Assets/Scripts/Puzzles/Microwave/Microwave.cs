@@ -14,8 +14,6 @@ public class Microwave : Interactive
     private bool solved = false;
     private bool open = false;
     public Animator animator;
-    public MessageManager messageManager;
-    public Message message;
 
 
     public override void Interact()
@@ -58,7 +56,6 @@ public class Microwave : Interactive
         }
         else
         {
-            messageManager.StartMessage(message);
             microwavePanel.SetActive(false);
             UI.HideMouse();
             FXManager.Play("WrongCode");

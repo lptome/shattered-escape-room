@@ -5,8 +5,13 @@ using UnityEngine;
 public class Open : Interactive
 {
     public Animator anim;
+    private SoundEffectsManager fxManager;
     private bool open = false;
 
+    private void Awake()
+    {
+        fxManager = FindObjectOfType<SoundEffectsManager>();
+    }
     public override void Interact()
     {
         base.Interact();
@@ -19,19 +24,20 @@ public class Open : Interactive
         if (open == false)
         {
             anim.Play("Open");
-            FindObjectOfType<SoundEffectsManager>().Play("Door");
+            fxManager.Play("Door");
             open = true;
 
         }
         else
         {
             anim.Play("Close");
-            FindObjectOfType<SoundEffectsManager>().Play("Door");
+            fxManager.Play("Door");
             open = false;
         }
             
 
     }
-
+    
+  
    
 }

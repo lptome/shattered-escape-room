@@ -19,6 +19,6 @@ public class SwitchMusicTrigger : Interactive
     }
     void SwitchTrack()
     {
-        musicManager.ChangeTrack(newTrack);
+        musicManager.ChangeTrackLoop(newTrack);
     }
 }
