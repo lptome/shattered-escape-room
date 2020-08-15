@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Battery
   itemDescription: Where could this be used?
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 13bdf87b0de324645b229bac58b94e24, type: 3}
   singleUse: 1
   finalItem: 

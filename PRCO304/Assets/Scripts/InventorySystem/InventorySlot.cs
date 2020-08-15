@@ -13,7 +13,6 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public ItemTooltip tooltip;
 
 
-
     public void AddItem(Item newItem)
     {
         item = newItem;
@@ -38,6 +37,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnItemClick()
     {
         inventoryUI.SelectItem(item);
+        Debug.Log(transform.parent.transform.GetSiblingIndex());
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -53,6 +53,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = eventData.position;
+        transform.parent.SetAsFirstSibling();
     }
 
     public void OnEndDrag(PointerEventData eventData)

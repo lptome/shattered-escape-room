@@ -52,9 +52,9 @@ public class InventoryUI : MonoBehaviour
             {
                 if (item1.finalItem.Equals(itemList[i].itemName))
                 {
-                    inventory.Remove(item1);
-                    inventory.Remove(item2);
                     inventory.Add(itemList[i]);
+                    inventory.Remove(item1);
+                    inventory.Remove(item2);  
                     draggedSlot.ClearSlot();
                     dropSlot.ClearSlot();
                     dropSlot.AddItem(itemList[i]);

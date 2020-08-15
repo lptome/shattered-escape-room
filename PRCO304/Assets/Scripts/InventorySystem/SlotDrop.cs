@@ -14,6 +14,7 @@ public class SlotDrop : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("Drop");
         Item itemInSlot = gameObject.GetComponent<InventorySlot>().GetItem();
         InventorySlot droppedSlot = gameObject.GetComponent<InventorySlot>();
         InventorySlot draggedSlot = eventData.pointerDrag.GetComponent<InventorySlot>();
