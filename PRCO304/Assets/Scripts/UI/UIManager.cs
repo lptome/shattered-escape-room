@@ -233,41 +233,14 @@ public class UIManager : MonoBehaviour
     }
     
 
-    void ToggleJournal()
-    {
-        inventoryPanel.SetActive(false);
-
-        if (journalPanel.activeSelf)
-        {
-            journalPanel.SetActive(true);
-
-            if (entryAdded == true)
-            {
-                int lastEntry = journal.entries.Count - 1;
-                entryView.ShowEntry(journal.entries[lastEntry]);
-                entryAdded = false;
-            }
-            else if (journal.entries.Count != 0)
-            {
-                int currentEntry = entryView.GetCurrentEntry();
-                entryView.ShowEntry(journal.entries[currentEntry]);
-                ShowMouse();
-                
-            }
-            ShowMouse();
-        }
-        else
-        {
-            journalPanel.SetActive(false);
-            HideMouse();
-        }
-    }
-
+    
     public void WritingComplete()
     {
         if (entryAdded == true)
         {
-            ToggleJournal();
+            int lastEntry = journal.entries.Count - 1;
+            entryView.ShowEntry(journal.entries[lastEntry]);
+            OpenJournal();
             entryAdded = false;
         }
     }

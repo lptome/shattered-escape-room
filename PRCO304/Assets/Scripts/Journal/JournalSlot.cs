@@ -1,10 +1,11 @@
 ﻿
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class JournalSlot : MonoBehaviour
 {
-    public Text title;
+    public TMP_Text title;
     JournalEntry journalEntry;
     [SerializeField] Button button;
     public Image image;

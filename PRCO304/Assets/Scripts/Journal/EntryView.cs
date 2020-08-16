@@ -1,11 +1,13 @@
 ﻿
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EntryView : MonoBehaviour
 {
-    [SerializeField] Text entryName;
-    [SerializeField] Text entryDescription;
+    [SerializeField] TMP_Text entryName;
+    [SerializeField] TMP_Text entryDescription;
     public Journal journal;
     private int currentEntry;
 
