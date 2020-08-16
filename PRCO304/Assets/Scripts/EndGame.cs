@@ -14,7 +14,9 @@ public class EndGame : MonoBehaviour
     public PlayerLook lookScript;
     public Walking bobbingScript;
     public GameObject blackScreen;
-    public AudioClip endGameTrack;
+    public GameObject thankYouScreen;
+    public AudioClip jumpScareTrack;
+    public AudioClip creditsTrack;
 
     private void OnTriggerEnter(Collider player)
     {
@@ -25,7 +27,7 @@ public class EndGame : MonoBehaviour
         Destroy(moveScript);
         Destroy(lookScript);
         Destroy(bobbingScript);
-        musicManager.PlayTrackNoLoop(endGameTrack);
+        musicManager.PlayTrackNoLoop(jumpScareTrack);
         for (int i = 0; i < 4; i++)
         {
             fxManager.Play("LargeFootsteps");
@@ -33,9 +35,13 @@ public class EndGame : MonoBehaviour
         }
         blackScreen.SetActive(true);
         fxManager.Play("Gunshot");
+        musicManager.ChangeTrackLoop(creditsTrack);
+        yield return new WaitForSeconds(2f);
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-       // SceneManager.LoadScene(3);
+        blackScreen.SetActive(false);
+        thankYouScreen.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        Application.Quit();
     }
     
 }
