@@ -12,6 +12,8 @@ public class DoorUnlock : Interactive
     private InventoryUI inventoryUI;
     private HintManager hintManager;
     private SoundEffectsManager FXManager;
+    private Inventory inventory;
+    private UIManager UI;
     public Item key;
 
 
@@ -20,6 +22,8 @@ public class DoorUnlock : Interactive
         hintManager = FindObjectOfType<HintManager>();
         inventoryUI = FindObjectOfType<InventoryUI>();
         FXManager = FindObjectOfType<SoundEffectsManager>();
+        inventory = FindObjectOfType<Inventory>();
+        UI = FindObjectOfType<UIManager>();
     }
 
 
@@ -48,7 +52,10 @@ public class DoorUnlock : Interactive
             {
                 if (inventoryUI.currentItem == key)
                 {
-                    Unlock();
+                    inventory.Remove(key);
+                    inventoryUI.UpdateUI();
+                    inventoryUI.DeselectItem();
+                    Unlock();                   
                 }
                 else
                 {

@@ -119,6 +119,7 @@ public class UIManager : MonoBehaviour
         
     }
 
+
     void OpenInventory()
     {
         if (puzzlesParent.activeSelf)

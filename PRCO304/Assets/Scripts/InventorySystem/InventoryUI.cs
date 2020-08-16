@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI()
     {
+        Debug.Log("Updating UI");
         for (int i = 0; i < inventory.slots; i++)
         {
             slots[i].ClearSlot();
@@ -40,6 +41,13 @@ public class InventoryUI : MonoBehaviour
         currentItem = item;
         selectedPanel.SetActive(true);
         selectedItem.sprite = item.icon;
+    }
+
+    public void DeselectItem()
+    {
+        currentItem = null;
+        selectedPanel.SetActive(false);
+        selectedItem.sprite = null;
     }
 
     public void Combine(InventorySlot draggedSlot, InventorySlot dropSlot, Item item1, Item item2)
