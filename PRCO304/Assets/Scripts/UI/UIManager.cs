@@ -10,6 +10,11 @@ public class UIManager : MonoBehaviour
     public GameObject inputField;
     public GameObject hintPanel;
     public GameObject pauseMenu;
+    public GameObject gridPuzzle;
+    public GameObject microwavePuzzle;
+    public GameObject keypadPuzzle;
+    public GameObject numberWheelPuzzle;
+    public GameObject puzzlesParent;
     public Hint inventoryHint;
     public Hint journalHint;
    
@@ -19,8 +24,6 @@ public class UIManager : MonoBehaviour
 
     public MessageManager messageManager;
 
-    private bool journalEnabled;
-    private bool inventoryEnabled;
     private bool entryAdded = false;
    
 
@@ -33,98 +36,208 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 
-        if (inventoryEnabled == false)
+        if (!inventoryPanel.activeSelf)
         {
             tooltipPanel.SetActive(false);
         }
-        if (journalEnabled == false)
+        if (!journalPanel.activeSelf)
         {
             entryPanel.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.L) && inputField.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            ToggleJournal();
+            if (journalPanel.activeSelf)
+            {
+                CloseJournal();
+            }
+            else if (!inputField.activeSelf)
+            {
+                OpenJournal();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && inputField.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            ToggleInventory();    
+            if (inventoryPanel.activeSelf)
+            {
+                CloseInventory();
+            }
+            else if (!inputField.activeSelf)
+            {
+                OpenInventory();
+            }
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TogglePauseMenu();
+            if (pauseMenu.activeSelf)
+            {
+                ClosePauseMenu();
+            }
+            else if (!inputField.activeSelf)
+            {
+                OpenPauseMenu();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (inventoryEnabled == true)
+            if (inventoryPanel.activeSelf)
             {
-                inventoryPanel.SetActive(false);
-                inventoryEnabled = !inventoryEnabled;
+                CloseInventory();
+
             }          
-            else if (journalEnabled == true)
+            else if (journalPanel.activeSelf)
             {
-                journalPanel.SetActive(false);
-                journalEnabled = !journalEnabled;
+                CloseJournal();
                 journalHint.Trigger();
+            }
+            else if(gridPuzzle.activeSelf)
+            {
+                CloseGridPuzzle();
+            }
+            else if (microwavePuzzle.activeSelf)
+            {
+                CloseMicrowavePuzzle();
+            }
+            else if (numberWheelPuzzle.activeSelf)
+            {
+                CloseNumberWheelPuzzle();
+            }
+            else if (keypadPuzzle.activeSelf)
+            {
+                CloseKeypadPuzzle();
+            }
+            else if (pauseMenu.activeSelf)
+            {
+                ClosePauseMenu();
             }
             else
             {
-                TogglePauseMenu();
+                OpenPauseMenu();
             }
-            HideMouse();
         }
 
         
     }
-    
-    void TogglePauseMenu()
-    {
-        if (pauseMenu.activeSelf == true)
-        {
-            pauseMenu.SetActive(false);
-            HideMouse();
-        }
-        else
-        {
-            pauseMenu.SetActive(true);
-            ShowMouse();
-        }
-    }
 
-    void ToggleInventory()
+    void OpenInventory()
     {
+        if (puzzlesParent.activeSelf)
+        {
+            DisablePuzzlesParent();
+        }
+        if (journalPanel.activeSelf)
+        {
+            CloseJournal();
+        }
         inventoryHint.Trigger();
-
-        if (journalEnabled == true)
-        {
-            journalEnabled = false;
-        }
-        journalPanel.SetActive(false);
-        inventoryEnabled = !inventoryEnabled;
-
-        if (inventoryEnabled == true)
-        {
-            inventoryPanel.SetActive(true);
-            ShowMouse();
-        }
-        else
-        {
-            inventoryPanel.SetActive(false);
-            HideMouse();
-
-        }
+        inventoryPanel.SetActive(true);
+        ShowMouse();
     }
+
+    void CloseInventory()
+    {
+        inventoryPanel.SetActive(false);
+        EnablePuzzlesParent();
+        HideMouse();
+    }
+
+    void OpenJournal()
+    {
+        if (puzzlesParent.activeSelf)
+        {
+            DisablePuzzlesParent();
+        }
+        else if (inventoryPanel.activeSelf)
+        {
+            CloseInventory();
+        }
+        journalPanel.SetActive(true);
+        ShowMouse();
+    }
+
+    void CloseJournal()
+    {
+        journalPanel.SetActive(false);
+        EnablePuzzlesParent();
+        HideMouse();
+    }
+
+    public void OpenGridPuzzle()
+    {
+        gridPuzzle.SetActive(true);
+        ShowMouse();
+    }
+
+    public void CloseGridPuzzle()
+    {
+        gridPuzzle.SetActive(false);
+        HideMouse();
+    }
+
+    public void OpenMicrowavePuzzle()
+    {
+        microwavePuzzle.SetActive(true);
+        ShowMouse();
+    }
+
+    public void CloseMicrowavePuzzle()
+    {
+        microwavePuzzle.SetActive(false);
+        HideMouse();
+    }
+
+    public void OpenKeypadPuzzle()
+    {
+        keypadPuzzle.SetActive(true);
+        ShowMouse();
+    }
+
+    public void CloseKeypadPuzzle()
+    {
+        keypadPuzzle.SetActive(false);
+        HideMouse();
+    }
+
+    public void OpenNumberWheelPuzzle()
+    {
+        numberWheelPuzzle.SetActive(true);
+        ShowMouse();
+    }
+
+    public void CloseNumberWheelPuzzle()
+    {
+        numberWheelPuzzle.SetActive(false);
+        HideMouse();
+    }
+
+    public void OpenPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        ShowMouse();
+    }
+
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        HideMouse();
+    }
+
+    public void EnablePuzzlesParent()
+    {
+        puzzlesParent.SetActive(true);
+    }
+
+    public void DisablePuzzlesParent()
+    {
+        puzzlesParent.SetActive(false);
+    }
+    
 
     void ToggleJournal()
     {
-        if (inventoryEnabled == true)
-        {
-            inventoryEnabled = false;
-        }
         inventoryPanel.SetActive(false);
-        journalEnabled = !journalEnabled;
 
-        if (journalEnabled == true)
+        if (journalPanel.activeSelf)
         {
             journalPanel.SetActive(true);
 
@@ -145,11 +258,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-           
             journalPanel.SetActive(false);
             HideMouse();
-            
-
         }
     }
 
@@ -168,10 +278,6 @@ public class UIManager : MonoBehaviour
         entryAdded = true;
     }
 
-    public void ItemAdded()
-    {
-
-    }
 
     public void ShowMouse()
     {
