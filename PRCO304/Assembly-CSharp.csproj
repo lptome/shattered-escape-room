@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DestroyOnClick.cs" />
     <Compile Include="Assets\FanSwitch.cs" />
     <Compile Include="Assets\Imported Assets\Clock\Scripts\Clock.cs" />
     <Compile Include="Assets\Imported Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
     <Compile Include="Assets\NumberPanel.cs" />
     <Compile Include="Assets\OpenGridPuzzle.cs" />
+    <Compile Include="Assets\OpenSafe.cs" />
     <Compile Include="Assets\Scripts\ChangeSquareColour.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\GridPuzzle.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\Scripts\Player\Walking.cs" />
     <Compile Include="Assets\Scripts\Puzzles\DoorUnlock.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Keypad.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\LaptopPuzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Lever.cs" />
     <Compile Include="Assets\Scripts\Puzzles\LeverPuzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Microwave\Microwave.cs" />
