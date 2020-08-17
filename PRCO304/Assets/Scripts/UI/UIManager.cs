@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour
         {
             DisablePuzzlesParent();
         }
-        else if (inventoryPanel.activeSelf)
+        if (inventoryPanel.activeSelf)
         {
             CloseInventory();
         }

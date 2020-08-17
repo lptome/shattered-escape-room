@@ -5,13 +5,13 @@ using UnityEngine;
 public class Lever : Interactive
 {
     public Animator anim;
-    public SoundEffectsManager audioManager;
+    public SoundEffectsManager soundEffects;
 
     public bool faceUp = true;
 
     private void Start()
     {
-        audioManager = FindObjectOfType<SoundEffectsManager>();
+        soundEffects = FindObjectOfType<SoundEffectsManager>();
     }
     public override void Interact()
     {
@@ -31,6 +31,6 @@ public class Lever : Interactive
         else
             anim.ResetTrigger("faceUp");
 
-        audioManager.Play("LeverPull");
+        soundEffects.Play("LeverPull");
     }
 }

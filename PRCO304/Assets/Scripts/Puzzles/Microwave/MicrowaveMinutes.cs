@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class MicrowaveMinutes : MonoBehaviour
 {
+    private SoundEffectsManager soundEffects;
     private int digit;
     public TMP_Text text;
 
     private void Start()
     {
+        soundEffects = FindObjectOfType<SoundEffectsManager>();
         digit = 0;
     }
     public void Increase()
@@ -23,6 +25,7 @@ public class MicrowaveMinutes : MonoBehaviour
         {
             digit = 0;
         }
+        PlaySound();
         UpdateDisplay();
     }
 
@@ -36,9 +39,14 @@ public class MicrowaveMinutes : MonoBehaviour
         {
             digit = 9;
         }
+        PlaySound();
         UpdateDisplay();
     }
 
+    void PlaySound()
+    {
+        soundEffects.Play("ButtonPress");
+    }
     void UpdateDisplay()
     {
         text.text = digit.ToString();

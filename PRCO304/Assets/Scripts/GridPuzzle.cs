@@ -11,6 +11,7 @@ public class GridPuzzle : MonoBehaviour
     public DoorUnlock door;
     public SoundEffectsManager soundEffectsManager;
     public UIManager UI;
+    public OpenGridPuzzle puzzleTrigger;
 
     private void Awake()
     {
@@ -18,15 +19,7 @@ public class GridPuzzle : MonoBehaviour
     }
 
 
-    void OpenPuzzle()
-    {
-       
-    }
-
-    void ClosePuzzle()
-    {
-
-    }
+   
     //This will be called from each individual square when the index changes.
     public void UpdateIndex(ChangeSquareColour square, int index)
     {
@@ -45,7 +38,13 @@ public class GridPuzzle : MonoBehaviour
             soundEffectsManager.Play("CorrectCode");
             door.Unlock();
             UI.CloseGridPuzzle();
+            Solve();
             Destroy(this);
         }
+    }
+
+    private void Solve()
+    {
+        Destroy(puzzleTrigger);
     }
 }

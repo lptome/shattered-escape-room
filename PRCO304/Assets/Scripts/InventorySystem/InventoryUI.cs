@@ -24,7 +24,6 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        Debug.Log("Updating UI");
         for (int i = 0; i < inventory.slots; i++)
         {
             slots[i].ClearSlot();

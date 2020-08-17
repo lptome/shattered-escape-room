@@ -75,6 +75,7 @@
     <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow.cs" />
     <Compile Include="Assets\Imported Assets\Soja Exiles\SE Basic Assets\Scripts and Animations\Windows\opencloseWindow1.cs" />
     <Compile Include="Assets\NumberPanel.cs" />
+    <Compile Include="Assets\OpenGridPuzzle.cs" />
     <Compile Include="Assets\Scripts\ChangeSquareColour.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\GridPuzzle.cs" />
