@@ -12,6 +12,8 @@ public class GridPuzzle : MonoBehaviour
     public SoundEffectsManager soundEffectsManager;
     public UIManager UI;
     public OpenGridPuzzle puzzleTrigger;
+    public JournalEntry entryToAdd;
+    public Journal journal;
 
     private void Awake()
     {
@@ -45,6 +47,9 @@ public class GridPuzzle : MonoBehaviour
 
     private void Solve()
     {
+        journal.Add(entryToAdd);
+        UI.EntryAdded();
+        UI.WritingComplete();
         Destroy(puzzleTrigger);
     }
 }

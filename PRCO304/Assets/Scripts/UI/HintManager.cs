@@ -27,7 +27,7 @@ public class HintManager : MonoBehaviour
         
     }
 
-    void HideHint()
+    public void HideHint()
     {
         hintAnimator.SetBool("isOpen", false);
         hintOn = false;

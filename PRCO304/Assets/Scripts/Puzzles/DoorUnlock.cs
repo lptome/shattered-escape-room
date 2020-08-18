@@ -13,7 +13,6 @@ public class DoorUnlock : Interactive
     private HintManager hintManager;
     private SoundEffectsManager FXManager;
     private Inventory inventory;
-    private UIManager UI;
     public Item key;
 
 
@@ -23,7 +22,6 @@ public class DoorUnlock : Interactive
         inventoryUI = FindObjectOfType<InventoryUI>();
         FXManager = FindObjectOfType<SoundEffectsManager>();
         inventory = FindObjectOfType<Inventory>();
-        UI = FindObjectOfType<UIManager>();
     }
 
 
@@ -34,15 +32,11 @@ public class DoorUnlock : Interactive
         {
             if (open == false)
             {
-                anim.Play("Open");
-                open = true;
-                FXManager.Play("Door");
+                OpenDoor();
             }
             else
             {
-                anim.Play("Close");
-                open = false;
-                FXManager.Play("Door");
+                CloseDoor();
             }
                 
         }
@@ -70,6 +64,19 @@ public class DoorUnlock : Interactive
             
             
         }
+    }
+    
+    public void CloseDoor()
+    {
+        anim.Play("Close");
+        open = false;
+        FXManager.Play("Door");
+    }
+    public void OpenDoor()
+    {
+        anim.Play("Open");
+        open = true;
+        FXManager.Play("Door");
     }
 
     public void Unlock()

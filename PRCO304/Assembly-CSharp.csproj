@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Journal\JournalEntry.cs" />
     <Compile Include="Assets\Scripts\Journal\JournalSlot.cs" />
     <Compile Include="Assets\Scripts\Journal\JournalUI.cs" />
+    <Compile Include="Assets\Scripts\LockDoorTrigger.cs" />
     <Compile Include="Assets\Scripts\Messages\Message.cs" />
     <Compile Include="Assets\Scripts\Messages\MessageFeedback.cs" />
     <Compile Include="Assets\Scripts\Messages\MessageManager.cs" />

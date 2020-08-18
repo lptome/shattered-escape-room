@@ -129,7 +129,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 650, y: 50}
+  m_SizeDelta: {x: 540, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5668459136619695816
 CanvasRenderer:
@@ -158,7 +158,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -187,10 +187,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.15686275}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.22745098}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.40392157}
+    m_NormalColor: {r: 0.45098042, g: 0.27058825, b: 0.2901961, a: 0}
+    m_HighlightedColor: {r: 0.45098042, g: 0.27058825, b: 0.2901961, a: 0.31764707}
+    m_PressedColor: {r: 0.45098042, g: 0.27058825, b: 0.2901961, a: 0.62352943}
+    m_SelectedColor: {r: 0.45098042, g: 0.27058825, b: 0.2901961, a: 0.5176471}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 36
   m_fontStyle: 1
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -224.35507, y: 0, z: -222.07727, w: 0}
+  m_margin: {x: -175.26068, y: 0, z: -169.23578, w: 0}
   m_textInfo:
     textComponent: {fileID: 1483276179}
     characterCount: 0

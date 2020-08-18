@@ -11,7 +11,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private Inventory inventory;
 
 
-    private bool pickedUp;
+    private bool pickedUp = false;
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class ItemPickup : MonoBehaviour
         pickedUp = inventory.Add(item);
         if (pickedUp)
         {
+            hintManager.HideHint();
+            hintManager.DisplayHint(item.itemName + " added to Inventory.", 2f);
             Destroy(itemModel);
         }
         else
@@ -37,8 +39,10 @@ public class ItemPickup : MonoBehaviour
 
     void Hover()
     {
-        hintManager.DisplayHint("Press E to pick up item.", 0.5f);
+        if(!pickedUp)
+            hintManager.DisplayHint("Press E to pick up item.", 0.5f);
     }
 
-    
+
+
 }

@@ -51,10 +51,13 @@ public class InventoryUI : MonoBehaviour
 
     public void Combine(InventorySlot draggedSlot, InventorySlot dropSlot, Item item1, Item item2)
     {
+        //Grab list of combo items
         List<Item> itemList = inventory.comboItems;
 
+        //Check if items can combine
         if (item1.finalItem.Equals(item2.finalItem))
         {
+            //Grab relevant item from the list and add to inventory.
             for (int i = 0; i < itemList.Count; i++)
             {
                 if (item1.finalItem.Equals(itemList[i].itemName))
